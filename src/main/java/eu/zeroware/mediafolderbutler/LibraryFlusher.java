@@ -55,8 +55,6 @@ public class LibraryFlusher extends LibraryWorker{
 										File destFile = new File(absoluteDestFilePath);
 										
 										try {
-//											FileUtils.copyFile(srcFile, destFile);
-											// TODO da sostituire con
 											 FileUtils.moveFile(srcFile, destFile);
 										} catch (IOException e) {
 											logger.error("Error during copy of " + song.getFile().getAbsolutePath() + " on its new position " + absoluteDestFilePath, e);
