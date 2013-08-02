@@ -16,7 +16,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.google.inject.Guice;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.name.Named;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
@@ -33,17 +35,17 @@ public class LastfmFinder extends JerseyRESTClient {
 	
 	private static Logger logger = LogManager.getLogger(LastfmFinder.class);
 	
-	private static final String BASE_SERVICE_URL 	= "http://ws.audioscrobbler.com/2.0/";
-	private static final String API_TOKEN 			= "87123568ea0cf9f0a1e3a996a0808828";
-	private static final String API_SECRET 			= "1ef4fd97331bc2ef6cc1be2d3440fa44";
-	private static final String API_USER 			= "glallop";
+	@Inject @Named("lastfm.baseServiceUrl") private String BASE_SERVICE_URL;
+	@Inject @Named("lastfm.apiToken") private String API_TOKEN;
+	@Inject @Named("lastfm.apiSecret") private String API_SECRET;
+	@Inject @Named("lastfm.apiUser") private String API_USER;
 	
 	private String token;
 	
 	private final String TOKEN_RESOURCE = "auth.gettoken";
 	
 	private void init(){
-		Caller.getInstance().setUserAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.79 Safari/537.4");
+		Caller.getInstance().setUserAgent( getRealUserAgent() );
 		Caller.getInstance().setDebugMode(true);
 	}
 	
