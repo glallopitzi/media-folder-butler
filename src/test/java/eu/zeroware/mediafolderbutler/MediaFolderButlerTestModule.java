@@ -23,13 +23,13 @@ public class MediaFolderButlerTestModule extends AbstractModule {
 		try {
 			Properties properties = new Properties();
 			String osName = System.getProperty("os.name");
-			properties.load(new FileReader("src/main/java/app.properties"));
+			properties.load(new FileReader("src/main/java/test.properties"));
 			
 			if (osName.contains("Windows")){
-				properties.load(new FileReader("src/main/java/app.win.properties"));
+				properties.load(new FileReader("src/main/java/test.win.properties"));
 			
 			} else if (osName.contains("Mac")) {
-				properties.load(new FileReader("src/main/java/app.osx.properties"));
+				properties.load(new FileReader("src/main/java/test.osx.properties"));
 			
 			} else {
 				throw new RuntimeException("OS not recognized");
