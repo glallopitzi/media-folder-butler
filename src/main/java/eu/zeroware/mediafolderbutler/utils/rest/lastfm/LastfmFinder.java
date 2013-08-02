@@ -26,7 +26,7 @@ import de.umass.lastfm.Caller;
 import de.umass.lastfm.Chart;
 import de.umass.lastfm.Track;
 import de.umass.lastfm.User;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.rest.JerseyRESTClient;
 
 public class LastfmFinder extends JerseyRESTClient {
@@ -48,19 +48,22 @@ public class LastfmFinder extends JerseyRESTClient {
 	}
 	
 	
-	public List<Artist> searchForArtistByName(String artistName){
+	public List<eu.zeroware.mediafolderbutler.music.entity.Artist> searchForArtistByName(String artistName){
 		init();
-		
+		List<eu.zeroware.mediafolderbutler.music.entity.Artist> result = new ArrayList<eu.zeroware.mediafolderbutler.music.entity.Artist>();
 		logger.info("Artist search result for " + artistName);
 		Collection<Artist> searchedArtists = Artist.search(artistName, API_TOKEN);
 	    for (Artist artist : searchedArtists) {
 	    	logger.info(artist.getName());
+	    	eu.zeroware.mediafolderbutler.music.entity.Artist toAdd = new eu.zeroware.mediafolderbutler.music.entity.Artist();
+	    	toAdd.setName(artist.getName());
+	    	result.add(toAdd);
 	    }
 	    
-		return null;
+		return result;
 	}
 	
-	public List<Album> searchForAlbumByName(String albumName){
+	public List<eu.zeroware.mediafolderbutler.music.entity.Album> searchForAlbumByName(String albumName){
 		init();
 		logger.info("Album search result for " + albumName);
 		Collection<Album> searchedAlbums = Album.search(albumName, API_TOKEN);
@@ -70,7 +73,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return null;
 	}
 	
-	public List<Song> searchForSongByName(String songName){
+	public List<eu.zeroware.mediafolderbutler.music.entity.Song> searchForSongByName(String songName){
 		init();
 		List<Song> songs = new ArrayList<Song>();
 		
@@ -104,7 +107,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return songs;
 	}
 	
-	public List<Song> searchForSongByNameAndArtist(String songName, String artistName){
+	public List<eu.zeroware.mediafolderbutler.music.entity.Song> searchForSongByNameAndArtist(String songName, String artistName){
 		init();
 		List<Song> songs = new ArrayList<Song>();
 
@@ -138,7 +141,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return songs;
 	}
 	
-	public Song searchForSongByNameArtistAndAlbum(String songName, String artistName, String albumName){
+	public eu.zeroware.mediafolderbutler.music.entity.Song searchForSongByNameArtistAndAlbum(String songName, String artistName, String albumName){
 		init();
 		
 		logger.info("Artist search result for: " + artistName);

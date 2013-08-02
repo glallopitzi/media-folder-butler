@@ -1,7 +1,5 @@
 package eu.zeroware.mediafolderbutler;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -11,11 +9,11 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	
+	TestLastFMClient.class
 })
 public class MediaFolderButlerTestSuite {
 
-	private static Logger logger = LogManager.getLogger(MediaFolderButlerTestSuite.class);
+//	private static Logger logger = LogManager.getLogger(MediaFolderButlerTestSuite.class);
 	
 	
 	@BeforeClass 
