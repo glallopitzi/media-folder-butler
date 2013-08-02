@@ -11,18 +11,15 @@ import org.apache.log4j.Logger;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
-import eu.zeroware.mediafolderbutler.utils.id3tag.SongBuilder;
-import eu.zeroware.mediafolderbutler.utils.id3tag.SongBuilderJAudioTagger;
+import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilder;
+import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilderJAudioTagger;
 
-public class MusicFolderOrganizerModule extends AbstractModule{
+public class MediaFolderButlerModule extends AbstractModule{
 
-	private static Logger logger = LogManager.getLogger(MusicFolderOrganizerModule.class);
+	private static Logger logger = LogManager.getLogger(MediaFolderButlerModule.class);
 	
 	@Override
 	protected void configure() {
-		
-//		bind(SongBuilder.class).to(SongBuilderJavaID3tag.class);
-		bind(SongBuilder.class).to(SongBuilderJAudioTagger.class);
 		
 		try {
 			Properties properties = new Properties();
@@ -46,7 +43,8 @@ public class MusicFolderOrganizerModule extends AbstractModule{
 		} catch (IOException e) {
 			logger.error("Some error during file reading", e);
 		}
-
+		
+		bind(SongBuilder.class).to(SongBuilderJAudioTagger.class);
 	}
 
 }

@@ -20,7 +20,7 @@ public class LibraryFlusher extends LibraryWorker{
 	
 	private static Logger logger = LogManager.getLogger(LibraryFlusher.class);
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
-	private List<File> skippedFiles;
+	
 	
 	@Inject
 	public LibraryFlusher(@Named("debug") Boolean debug, @Named("musicRootFolder") String musicRootFolder) {
@@ -28,51 +28,11 @@ public class LibraryFlusher extends LibraryWorker{
 	}
 	
 	public void flush(){
-		flushLibrary();
-		flushSkippedFiles();
+		// TODO
 	}
 	
-	
-	private void flushLibrary(){
-		logger.info("Flush library here..");
-		if(makeNewDestinationFolder()){
-			for (Artist artist : library.getArtists()) {
-				if(makeArtistFolder(artist)){
-					for (Album album : library.getAlbums()) {
-						if(album.getArtist().getName().equals(artist.getName())){
-							if(makeAlbumFolder(artist, album)){
-								for (Song song : album.getTracks()) {
-									String destFilename = song.getName() + "." + song.getAudioFileType();
-									String absoluteDestFilePath = getAlbumFolderName(artist, album) + FOLDER_SEPARATOR + destFilename;
-									logger.info("Now copy " + song.getFile().getAbsolutePath() + " to its new position: " + absoluteDestFilePath);
-									
-									
-									if(debug){
-										makeFile(absoluteDestFilePath);
-										
-									}else{
-										File srcFile = song.getFile();
-										File destFile = new File(absoluteDestFilePath);
-										
-										try {
-											 FileUtils.moveFile(srcFile, destFile);
-										} catch (IOException e) {
-											logger.error("Error during copy of " + song.getFile().getAbsolutePath() + " on its new position " + absoluteDestFilePath, e);
-										}	
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	private void flushSkippedFiles(){
-		for (File skippedItem : getSkippedFiles()) {
-			logger.info("SkippedItem: " + skippedItem.getAbsolutePath());
-		}
+	public void print() {
+		logger.info(library.toString());
 	}
 	
 	
@@ -131,12 +91,4 @@ public class LibraryFlusher extends LibraryWorker{
 		return true;
 	}
 
-	public void setSkippedFiles(List<File> skippedFiles) {
-		this.skippedFiles = skippedFiles;
-	}
-
-	public List<File> getSkippedFiles() {
-		return skippedFiles;
-	}
-	
 }

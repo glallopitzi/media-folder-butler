@@ -1,7 +1,7 @@
 package eu.zeroware.mediafolderbutler;
 
 import eu.zeroware.mediafolderbutler.entity.Library;
-import eu.zeroware.mediafolderbutler.utils.MusicFolderUtil;
+import eu.zeroware.mediafolderbutler.music.MusicFolderUtil;
 
 public abstract class LibraryWorker {
 	
@@ -23,6 +23,7 @@ public abstract class LibraryWorker {
 		this.FOLDER_SEPARATOR = System.getProperty("file.separator");
 	}
 	
+	public abstract void print();
 	
 	public void outlnSeparetor(){
 		outln("\n\n============================");

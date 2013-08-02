@@ -1,4 +1,4 @@
-package eu.zeroware.mediafolderbutler.utils;
+package eu.zeroware.mediafolderbutler.music;
 
 public class MusicFolderUtil {
 	

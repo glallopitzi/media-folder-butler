@@ -8,9 +8,9 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 
-public class MusicFolderOrganizer {
+public class MediaFolderButlerApp {
 
-	private static Logger logger = LogManager.getLogger(MusicFolderOrganizer.class);
+	private static Logger logger = LogManager.getLogger(MediaFolderButlerApp.class);
 	
 	@Inject private LibraryBuilder libraryBuilder;
 	@Inject private LibraryEnhancer libraryEnhancer;
@@ -30,7 +30,7 @@ public class MusicFolderOrganizer {
 	public void enhanceLibrary(){
 		logger.info("enhanceLibrary - INIT");
 		libraryEnhancer.setLibrary(libraryBuilder.getLibrary());
-		libraryEnhancer.setSkippedFiles(libraryBuilder.getSkippedFiles());
+		
 		libraryEnhancer.enhance();
 		libraryEnhancer.print();
 		logger.info("enhanceLibrary - END");
@@ -41,7 +41,7 @@ public class MusicFolderOrganizer {
 	private void flushLibrary() {
 		logger.info("flushLibrary - INIT");
 		libraryFlusher.setLibrary(libraryEnhancer.getLibrary());
-		libraryFlusher.setSkippedFiles(libraryEnhancer.getSkippedFiles());
+		
 		libraryFlusher.flush();
 		logger.info("flushLibrary - END");
 	}
@@ -58,10 +58,10 @@ public class MusicFolderOrganizer {
 	////////////////////////////////////////////////////////////
 	// MAIN METHOD
 	public static void main(String[] args) {
-		Injector injector = Guice.createInjector(new MusicFolderOrganizerModule());
-		MusicFolderOrganizer organizer = injector.getInstance(MusicFolderOrganizer.class);
-		organizer.buildLibrary();
-		organizer.enhanceLibrary();
-		organizer.flushLibrary();
+		Injector injector = Guice.createInjector(new MediaFolderButlerModule());
+		MediaFolderButlerApp app = injector.getInstance(MediaFolderButlerApp.class);
+		app.buildLibrary();
+		app.enhanceLibrary();
+		app.flushLibrary();
 	}
 }
