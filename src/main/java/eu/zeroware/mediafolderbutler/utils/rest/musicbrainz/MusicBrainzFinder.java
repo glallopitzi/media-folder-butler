@@ -111,6 +111,18 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 			if(artistLookupResult != null){
 				Artist artist = new Artist();
 				artist.setName(artistLookupResult.getArtist().getName());
+				if (artistLookupResult.getArtist().getReleaseList().getReleases() != null ){
+					List<Album> albums = new ArrayList<Album>();
+					for (Release release : artistLookupResult.getArtist().getReleaseList().getReleases()) {
+						Album album = new Album();
+						album.setArtist(artist);
+						album.setName(release.getTitle());
+						album.setMbid(release.getId());
+						albums.add(album);
+					}
+					artist.setAlbums(albums);
+				}
+				
 				return artist;
 			}	
 		}
@@ -172,7 +184,18 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 			if(artistSearchResult != null){
 				ArtistSearchResultItem artistSearchResultItem = artistSearchResult.getArtistSearchResultList().getArtistSearchResultItems().get(0);
 				logger.debug("in searchForArtistByName, arid: " + artistSearchResultItem.getId());
-				return lookupArtistWithAlbums(artistSearchResultItem.getId());
+				
+				Artist artistWithAlbums = lookupArtistWithAlbums(artistSearchResultItem.getId());
+				artistWithAlbums.setMbid(artistSearchResultItem.getId());
+				
+				List<Album> newAlbumList = new ArrayList<Album>();
+				for (Album album : artistWithAlbums.getAlbums()) {
+					Album albumWithSongs = lookupAlbumWithSongs(album.getMbid());
+					newAlbumList.add(albumWithSongs);
+				}
+				artistWithAlbums.setAlbums(newAlbumList);
+				return artistWithAlbums;
+				
 			}
 		}	
 		return null;
