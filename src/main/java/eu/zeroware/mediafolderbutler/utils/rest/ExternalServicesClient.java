@@ -1,8 +1,8 @@
 package eu.zeroware.mediafolderbutler.utils.rest;
 
-import eu.zeroware.mediafolderbutler.entity.Album;
-import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Album;
+import eu.zeroware.mediafolderbutler.music.entity.Artist;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public interface ExternalServicesClient {	
 	public void enhanceSongInfo(Song song);

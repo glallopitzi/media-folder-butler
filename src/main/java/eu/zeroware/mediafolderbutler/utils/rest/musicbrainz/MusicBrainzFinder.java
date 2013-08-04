@@ -15,13 +15,15 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.google.inject.Guice;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.name.Named;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-import eu.zeroware.mediafolderbutler.entity.Album;
-import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Album;
+import eu.zeroware.mediafolderbutler.music.entity.Artist;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.rest.JerseyRESTClient;
 import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.browse.AlbumBrowseResult;
 import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.browse.ArtistBrowseResult;
@@ -43,7 +45,7 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	
 	private static Logger logger = LogManager.getLogger(MusicBrainzFinder.class);
 	
-	private final String BASE_SERVICE_URL = "http://musicbrainz.org/ws/2/";
+	@Inject @Named("musicbrainz.baseServiceUrl") private String BASE_SERVICE_URL;
 	
 	private final String SONG_RESOURCE 		= "recording";
 	private final String SONGS_RESOURCE 	= SONG_RESOURCE + "s";

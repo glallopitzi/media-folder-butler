@@ -9,9 +9,9 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
-import eu.zeroware.mediafolderbutler.entity.Album;
-import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Album;
+import eu.zeroware.mediafolderbutler.music.entity.Artist;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.MusicBrainzFinder;
 
 public class MusicBrainzClient implements ExternalServicesClient {

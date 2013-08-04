@@ -20,7 +20,6 @@ public class TestLastFMClient extends MediaFolderButlerTestBase {
 	public void init() {
 		if (client == null)
 			client = injector.getInstance(LastfmClient.class);
-		
 	}
 	
 	
