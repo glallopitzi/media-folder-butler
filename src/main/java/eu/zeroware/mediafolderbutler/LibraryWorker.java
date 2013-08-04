@@ -1,14 +1,20 @@
 package eu.zeroware.mediafolderbutler;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import eu.zeroware.mediafolderbutler.entity.Library;
-import eu.zeroware.mediafolderbutler.music.MusicFolderUtil;
 
 public abstract class LibraryWorker {
 	
-	// config from properties
-	protected final Boolean debug;
-	protected final String BASE_MUSIC_FOLDER;
-	protected final String FOLDER_SEPARATOR;
+	@Inject @Named("builder.book") protected boolean builderBook;
+	@Inject @Named("builder.movie") protected boolean builderMovie;
+	@Inject @Named("builder.music") protected boolean builderMusic;
+	
+	@Inject @Named("debug") protected Boolean debug;
+	@Inject @Named("musicRootFolder") protected String BASE_MUSIC_FOLDER;
+	
+	protected final String FOLDER_SEPARATOR = System.getProperty("file.separator");
 	
 	// config hardcoded
 	protected final String[] AUDIO_EXT 			= { "mp3", "m4a" };
@@ -17,11 +23,6 @@ public abstract class LibraryWorker {
 	
 	protected Library library;
 	
-	public LibraryWorker(Boolean debug, String musicRootFolder){
-		this.debug = debug;
-		this.BASE_MUSIC_FOLDER = musicRootFolder;
-		this.FOLDER_SEPARATOR = System.getProperty("file.separator");
-	}
 	
 	public abstract void print();
 	
@@ -30,7 +31,7 @@ public abstract class LibraryWorker {
 	}
 	
 	public void outln(String msg){
-		MusicFolderUtil.outln(msg);
+		System.out.println(msg);
 	}
 	
 	public Library getLibrary() {

@@ -2,18 +2,13 @@ package eu.zeroware.mediafolderbutler;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-
-import eu.zeroware.mediafolderbutler.entity.Collection;
 import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Creation;
+import eu.zeroware.mediafolderbutler.entity.Collection;
 
 
 public class LibraryFlusher extends LibraryWorker{
@@ -21,11 +16,6 @@ public class LibraryFlusher extends LibraryWorker{
 	private static Logger logger = LogManager.getLogger(LibraryFlusher.class);
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
 	
-	
-	@Inject
-	public LibraryFlusher(@Named("debug") Boolean debug, @Named("musicRootFolder") String musicRootFolder) {
-		super(debug, musicRootFolder);
-	}
 	
 	public void flush(){
 		// TODO

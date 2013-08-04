@@ -28,7 +28,7 @@ public abstract class LibraryWorker {
 	}
 	
 	public void outln(String msg){
-		MusicFolderUtil.outln(msg);
+		System.out.println(msg);
 	}
 	
 	public Library getLibrary() {
