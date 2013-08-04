@@ -7,8 +7,8 @@ import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.search.ArtistSearchR
 
 public class Artist {
 	private String name;
-	private List<Album> albums;
-	private List<Song> songs;
+	private List<Collection> collections;
+	private List<Creation> creations;
 	
 	private List<String> genres;
 	private List<String> tags;
@@ -18,12 +18,12 @@ public class Artist {
 	public Artist() {
 	}
 
-	public Artist(Song song) {
-		this.name = song.getArtist();
-		songs = new ArrayList<Song>();
-		songs.add(song);
-		albums = new ArrayList<Album>();
-		albums.add(new Album(song.getAlbum(), song.getArtist()));
+	public Artist(Creation creation) {
+		this.name = creation.getArtist();
+		creations = new ArrayList<Creation>();
+		creations.add(creation);
+		collections = new ArrayList<Collection>();
+		collections.add(new Collection(creation.getAlbum(), creation.getArtist()));
 	}
 	
 	public Artist(String name) {
@@ -34,18 +34,18 @@ public class Artist {
 		this.name = artistSearchResultItem.getName();
 	}
 
-	public void addSong(Song song){
-		if(!songs.contains(song)){
-			songs.add(song);
+	public void addSong(Creation creation){
+		if(!creations.contains(creation)){
+			creations.add(creation);
 		}
 		
-		addAlbum(song);
+		addAlbum(creation);
 	}
 	
-	public void addAlbum(Song song){
-		Album album = new Album(song.getAlbum(), song.getArtist());
-		if(!albums.contains(album)){
-			albums.add(album);
+	public void addAlbum(Creation creation){
+		Collection collection = new Collection(creation.getAlbum(), creation.getArtist());
+		if(!collections.contains(collection)){
+			collections.add(collection);
 		}
 	}
 	
@@ -67,8 +67,8 @@ public class Artist {
 		builder.append("Artist info" + "\n");
 		builder.append("------------" + "\n");
 		builder.append("Name: " + name + "\n");
-		if(albums != null)
-			builder.append("Albums number: " + albums.size() + "\n");
+		if(collections != null)
+			builder.append("Albums number: " + collections.size() + "\n");
 		builder.append("------------" + "\n");
 		return builder.toString();
 	}
@@ -81,12 +81,12 @@ public class Artist {
 		this.name = name;
 	}
 
-	public List<Album> getAlbums() {
-		return albums;
+	public List<Collection> getAlbums() {
+		return collections;
 	}
 
-	public void setAlbums(List<Album> albums) {
-		this.albums = albums;
+	public void setAlbums(List<Collection> collections) {
+		this.collections = collections;
 	}
 
 	public List<String> getTags() {
@@ -113,11 +113,11 @@ public class Artist {
 		return mbid;
 	}
 
-	public void setSongs(List<Song> songs) {
-		this.songs = songs;
+	public void setSongs(List<Creation> creations) {
+		this.creations = creations;
 	}
 
-	public List<Song> getSongs() {
-		return songs;
+	public List<Creation> getSongs() {
+		return creations;
 	}
 }

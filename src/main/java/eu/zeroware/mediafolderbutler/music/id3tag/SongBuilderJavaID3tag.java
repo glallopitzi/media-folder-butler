@@ -9,7 +9,7 @@ import org.farng.mp3.MP3File;
 import org.farng.mp3.id3.AbstractID3v2;
 import org.farng.mp3.id3.ID3v1;
 
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class SongBuilderJavaID3tag implements SongBuilder {
 

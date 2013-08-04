@@ -2,7 +2,7 @@ package eu.zeroware.mediafolderbutler.music.id3tag;
 
 import java.io.File;
 
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public interface SongBuilder {
 	

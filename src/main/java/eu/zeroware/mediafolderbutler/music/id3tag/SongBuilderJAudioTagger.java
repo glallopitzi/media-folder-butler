@@ -19,7 +19,7 @@ import org.jaudiotagger.tag.TagField;
 import org.jaudiotagger.tag.vorbiscomment.VorbisCommentFieldKey;
 import org.jaudiotagger.tag.vorbiscomment.VorbisCommentTag;
 
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class SongBuilderJAudioTagger implements SongBuilder {
 

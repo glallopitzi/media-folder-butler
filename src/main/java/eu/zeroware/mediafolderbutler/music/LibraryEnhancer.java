@@ -9,9 +9,9 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-import eu.zeroware.mediafolderbutler.entity.Album;
+import eu.zeroware.mediafolderbutler.entity.Collection;
 import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.entity.Creation;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 

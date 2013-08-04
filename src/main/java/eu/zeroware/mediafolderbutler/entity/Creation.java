@@ -6,9 +6,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-public class Song {
+public class Creation {
 
-	private static Logger logger = LogManager.getLogger(Song.class);
+	private static Logger logger = LogManager.getLogger(Creation.class);
 	
 	private File file;
 	private String filename;
@@ -25,9 +25,9 @@ public class Song {
 	
 	private String mbid;
 	
-	public Song() {}
+	public Creation() {}
 	
-	public Song(File file) {
+	public Creation(File file) {
 		this.file = file;
 		this.filename = file.getName();
 		this.foldername = file.getParentFile().getName();
@@ -35,7 +35,7 @@ public class Song {
 	}
 	
 	
-	public Song(File file, String audioFileType, String name, String number,
+	public Creation(File file, String audioFileType, String name, String number,
 			String album, String artist, String year) {
 		super();
 		this.file = file;
@@ -81,9 +81,9 @@ public class Song {
 	
 	@Override
 	public boolean equals(Object obj) {
-		Song song = (Song) obj;
+		Creation creation = (Creation) obj;
 		try {
-			return this.name.equals(song.getName());
+			return this.name.equals(creation.getName());
 		} catch (Exception e) {
 			logger.error("Some error during song comparison", e);
 			return false;

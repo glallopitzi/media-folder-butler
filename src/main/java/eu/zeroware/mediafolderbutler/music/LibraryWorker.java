@@ -1,6 +1,6 @@
 package eu.zeroware.mediafolderbutler.music;
 
-import eu.zeroware.mediafolderbutler.entity.Library;
+import eu.zeroware.mediafolderbutler.music.entity.Library;
 
 public abstract class LibraryWorker {
 	

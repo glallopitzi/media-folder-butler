@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-import eu.zeroware.mediafolderbutler.entity.Library;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.music.entity.Library;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilder;
 
 public class LibraryBuilder extends LibraryWorker{

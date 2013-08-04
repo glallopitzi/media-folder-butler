@@ -11,9 +11,9 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-import eu.zeroware.mediafolderbutler.entity.Album;
+import eu.zeroware.mediafolderbutler.entity.Collection;
 import eu.zeroware.mediafolderbutler.entity.Artist;
-import eu.zeroware.mediafolderbutler.entity.Song;
+import eu.zeroware.mediafolderbutler.entity.Creation;
 
 
 public class LibraryFlusher extends LibraryWorker{
@@ -38,11 +38,11 @@ public class LibraryFlusher extends LibraryWorker{
 	
 	
 
-	private boolean makeAlbumFolder(Artist artist, Album album){
+	private boolean makeAlbumFolder(Artist artist, Collection album){
 		return makeFolder(getAlbumFolderName(artist, album));
 	}
 	
-	private String getAlbumFolderName(Artist artist, Album album){
+	private String getAlbumFolderName(Artist artist, Collection album){
 		return getArtistFolderName(artist) + FOLDER_SEPARATOR + artist.getName() + " - " + album.getName() + " (" + album.getYear() + ")";
 	}
 	
