@@ -1,4 +1,4 @@
-package eu.zeroware.mediafolderbutler.entity;
+	package eu.zeroware.mediafolderbutler.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,18 +6,22 @@ import java.util.List;
 import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.search.ArtistSearchResultItem;
 
 public class Artist {
+	
+	private String id;
 	private String name;
+	
 	private List<Collection> collections;
 	private List<Creation> creations;
 	
 	private List<String> genres;
 	private List<String> tags;
-	
-	private String mbid;
-	
-	public Artist() {
-	}
+		
+	public Artist() {}
 
+	public Artist(String name) {
+		this.name = name;
+	}
+	
 	public Artist(Creation creation) {
 		this.name = creation.getArtist();
 		creations = new ArrayList<Creation>();
@@ -26,15 +30,13 @@ public class Artist {
 		collections.add(new Collection(creation.getAlbum(), creation.getArtist()));
 	}
 	
-	public Artist(String name) {
-		this.name = name;
-	}
 
 	public Artist(ArtistSearchResultItem artistSearchResultItem) {
 		this.name = artistSearchResultItem.getName();
 	}
 
-	public void addSong(Creation creation){
+	
+	public void addCreation(Creation creation){
 		if(!creations.contains(creation)){
 			creations.add(creation);
 		}
@@ -106,11 +108,11 @@ public class Artist {
 	}
 
 	public void setMbid(String mbid) {
-		this.mbid = mbid;
+		this.id = mbid;
 	}
 
 	public String getMbid() {
-		return mbid;
+		return id;
 	}
 
 	public void setSongs(List<Creation> creations) {

@@ -20,12 +20,7 @@ public class LibraryFlusher extends LibraryWorker{
 	public void flush(){
 		// TODO
 	}
-	
-	public void print() {
-		logger.info(library.toString());
-	}
-	
-	
+		
 	
 
 	private boolean makeAlbumFolder(Artist artist, Collection album){
@@ -58,7 +53,7 @@ public class LibraryFlusher extends LibraryWorker{
 	
 	
 	
-	private boolean makeFile(String fileToCreate){
+	protected boolean makeFile(String fileToCreate){
 		File newFolder = new File(fileToCreate);
 		try {
 			FileUtils.touch(newFolder);
@@ -69,7 +64,7 @@ public class LibraryFlusher extends LibraryWorker{
 		return true;
 	}
 	
-	private boolean makeFolder(String folderToCreate){
+	protected boolean makeFolder(String folderToCreate){
 		File newFolder = new File(folderToCreate);
 		try {
 			newFolder.mkdir();
@@ -79,6 +74,14 @@ public class LibraryFlusher extends LibraryWorker{
 			return false;
 		}
 		return true;
+	}
+
+
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

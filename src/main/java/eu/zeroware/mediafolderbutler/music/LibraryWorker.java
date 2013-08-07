@@ -1,35 +1,20 @@
 package eu.zeroware.mediafolderbutler.music;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import eu.zeroware.mediafolderbutler.music.entity.Library;
 
-public abstract class LibraryWorker {
-	
-	// config from properties
-	protected final Boolean debug;
-	protected final String BASE_MUSIC_FOLDER;
-	protected final String FOLDER_SEPARATOR;
-	
+public abstract class LibraryWorker extends eu.zeroware.mediafolderbutler.LibraryWorker{
+		
 	// config hardcoded
-	protected final String[] AUDIO_EXT 			= { "mp3", "m4a" };
-	protected final String[] COMPILATION_EXT 	= { "m3u", "nfo" };
-	protected final String[] OTHER_EXT 			= { "jpg", "jpeg", "db", "url", "txt", "pdf"};
+	@Inject @Named("music.audio.files.extentions") protected String AUDIO_EXT_STRING;
+	@Inject @Named("music.audio.compilation.extensions") protected String COMPILATION_EXT_STRING;
+	@Inject @Named("music.audio.other.extensions") protected String OTHER_EXT_STRING;
 	
-	protected Library library;
-	
-	public LibraryWorker(Boolean debug, String musicRootFolder){
-		this.debug = debug;
-		this.BASE_MUSIC_FOLDER = musicRootFolder;
-		this.FOLDER_SEPARATOR = System.getProperty("file.separator");
-	}
-	
-	
-	public void outlnSeparetor(){
-		outln("\n\n============================");
-	}
-	
-	public void outln(String msg){
-		System.out.println(msg);
-	}
+	protected Library library;	
 	
 	public Library getLibrary() {
 		return library;
@@ -37,6 +22,10 @@ public abstract class LibraryWorker {
 
 	public void setLibrary(Library library) {
 		this.library = library;
+	}
+	
+	public String[] getAudioExtenstionStringArray(){
+		return StringUtils.split(AUDIO_EXT_STRING, ",");
 	}
 	
 	

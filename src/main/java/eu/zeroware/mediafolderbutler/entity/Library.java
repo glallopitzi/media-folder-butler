@@ -57,7 +57,7 @@ public class Library {
 			
 			
 		}else{
-			artists.get(artists.indexOf(artist)).addSong(creation);
+			artists.get(artists.indexOf(artist)).addCreation(creation);
 		}
 	}
 
@@ -78,22 +78,33 @@ public class Library {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nLibrary details:\n");
-		sb.append(" - artists found: " + artists.size() + "\n");
-		for (Artist artist : artists) {
-			sb.append(artist);
-		}
-		sb.append("\n=======\n");
 		
-		sb.append(" - collections found: " + collections.size() + "\n");
+		sb.append("\n=======\n");
+		sb.append(" - total artists found: " + artists.size() + "\n");
+		for (Artist artist : artists) {
+			sb.append(artist.toString());
+		}
+		
+		sb.append("\n=======\n");
+		sb.append(" - total collections found: " + collections.size() + "\n");
 		for (Collection collection : collections) {
-			sb.append(collection);
+			sb.append(collection.toString());
+		}
+		
+		sb.append("\n=======\n");
+		sb.append(" - total creations found: " + creations.size() + "\n");
+		for (Creation creation : creations) {
+			sb.append(creation.toString());
 		}
 		return sb.toString();
 	}
 
 	
 	
-	
+	public <E> String print(){
+		
+		return null;
+	}
 	
 	
 	

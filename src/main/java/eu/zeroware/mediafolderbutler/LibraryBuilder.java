@@ -11,10 +11,15 @@ public class LibraryBuilder extends LibraryWorker{
 	public void build(){
 		logger.info("in buildLibrary");
 		// TODO
+	}
+
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
 	}	
 	
-	public void print() {
-		logger.info(library.toString());
-	}
+	
 
 }

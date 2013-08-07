@@ -21,7 +21,6 @@ public class MediaFolderButlerApp {
 	public void buildLibrary() {
 		logger.info("buildLibrary - INIT");
 		libraryBuilder.build();
-		libraryBuilder.print();
 		logger.info("buildLibrary - END");
 	}
 
@@ -29,10 +28,10 @@ public class MediaFolderButlerApp {
 	// ENHANCE STEP
 	public void enhanceLibrary(){
 		logger.info("enhanceLibrary - INIT");
-		libraryEnhancer.setLibrary(libraryBuilder.getLibrary());
+//		libraryEnhancer.setLibrary(libraryBuilder.getLibrary());
 		
 		libraryEnhancer.enhance();
-		libraryEnhancer.print();
+//		libraryEnhancer.print();
 		logger.info("enhanceLibrary - END");
 	}
 	
@@ -40,8 +39,7 @@ public class MediaFolderButlerApp {
 	// FLUSH STEP
 	private void flushLibrary() {
 		logger.info("flushLibrary - INIT");
-		libraryFlusher.setLibrary(libraryEnhancer.getLibrary());
-		
+//		libraryFlusher.setLibrary(libraryEnhancer.getLibrary());
 		libraryFlusher.flush();
 		logger.info("flushLibrary - END");
 	}

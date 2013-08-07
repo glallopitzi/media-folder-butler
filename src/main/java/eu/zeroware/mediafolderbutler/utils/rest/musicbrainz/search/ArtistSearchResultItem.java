@@ -1,5 +1,7 @@
 package eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.search;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -10,7 +12,8 @@ public class ArtistSearchResultItem {
 	private String id;
 	private String type;
 	private String name;
-
+	private List<MBTagItem> tags;
+	
 	public String getName() {
 		return name;
 	}
@@ -36,6 +39,15 @@ public class ArtistSearchResultItem {
 
 	public String getId() {
 		return id;
+	}
+
+	public List<MBTagItem> getTags() {
+		return tags;
+	}
+
+	@XmlElement(name="tag", namespace="http://musicbrainz.org/ns/mmd-2.0#")
+	public void setTags(List<MBTagItem> tags) {
+		this.tags = tags;
 	}
 	
 }

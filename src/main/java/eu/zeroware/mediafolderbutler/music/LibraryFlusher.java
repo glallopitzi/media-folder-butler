@@ -8,9 +8,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
@@ -22,10 +19,6 @@ public class LibraryFlusher extends LibraryWorker{
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
 	private List<File> skippedFiles;
 	
-	@Inject
-	public LibraryFlusher(@Named("debug") Boolean debug, @Named("musicRootFolder") String musicRootFolder) {
-		super(debug, musicRootFolder);
-	}
 	
 	public void flush(){
 		flushLibrary();
@@ -137,6 +130,12 @@ public class LibraryFlusher extends LibraryWorker{
 
 	public List<File> getSkippedFiles() {
 		return skippedFiles;
+	}
+
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
 	}
 	
 }

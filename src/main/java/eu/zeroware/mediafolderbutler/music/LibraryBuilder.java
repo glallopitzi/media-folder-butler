@@ -25,11 +25,6 @@ public class LibraryBuilder extends LibraryWorker{
 	private List<Song> foundTracks;
 	private List<File> skippedFiles;
 	
-	@Inject
-	public LibraryBuilder(@Named("debug") Boolean debug, @Named("musicRootFolder") String musicRootFolder) {
-		super(debug, musicRootFolder);
-	}
-	
 	public void build(){
 		buildTracksArray();
 		buildLibraryFromTracksArray();
@@ -40,7 +35,7 @@ public class LibraryBuilder extends LibraryWorker{
 		logger.info("Try to build library from: " + BASE_MUSIC_FOLDER);
 		
 		boolean recursive = true;
-		Collection<File> listFiles = FileUtils.listFiles(root, AUDIO_EXT, recursive);
+		Collection<File> listFiles = FileUtils.listFiles(root, getAudioExtenstionStringArray(), recursive);
 		logger.info(listFiles.size() + " audio files found");
 
 		foundTracks = new ArrayList<Song>();

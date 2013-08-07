@@ -13,10 +13,15 @@ public class LibraryEnhancer extends LibraryWorker{
 		logger.info("in enhanceLibrary");
 		// TODO		
 	}
-	
-	
+
+
+	@Override
 	public void print() {
-		logger.info(library.toString());
+		// TODO Auto-generated method stub
+		
 	}
+	
+	
+	
 
 }
