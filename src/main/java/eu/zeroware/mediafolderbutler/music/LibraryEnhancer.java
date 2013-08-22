@@ -12,7 +12,7 @@ import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 
 
-public class LibraryEnhancer extends LibraryWorker{
+public class LibraryEnhancer extends MediaLibraryWorker{
 	
 	private static Logger logger = LogManager.getLogger(LibraryEnhancer.class);
 	

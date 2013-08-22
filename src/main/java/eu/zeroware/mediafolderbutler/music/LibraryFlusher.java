@@ -13,7 +13,7 @@ import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 
-public class LibraryFlusher extends LibraryWorker{
+public class LibraryFlusher extends MediaLibraryWorker{
 	
 	private static Logger logger = LogManager.getLogger(LibraryFlusher.class);
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
