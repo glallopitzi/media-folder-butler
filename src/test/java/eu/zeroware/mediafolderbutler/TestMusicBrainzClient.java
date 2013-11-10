@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import eu.zeroware.mediafolderbutler.music.entity.Album;
@@ -25,6 +26,7 @@ public class TestMusicBrainzClient extends MediaFolderButlerTestBase{
 	
 	
 	@Test
+	@Ignore
 	public void testSearchForArtistByName(){
 		
 		MusicBrainzFinder finder = client.getBrainzFinder();

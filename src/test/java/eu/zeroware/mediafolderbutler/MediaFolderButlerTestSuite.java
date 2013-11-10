@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	TestLastFMClient.class
+	TestLastFMClient.class,
+	TestMusicBrainzClient.class
 })
 public class MediaFolderButlerTestSuite {
 

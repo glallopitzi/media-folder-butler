@@ -82,7 +82,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		logger.info("Song search result for: " + songName);
 		Collection<Track> search = Track.search(songName, API_TOKEN);
 		for (Track track : search) {
-			Track trackInfo = Track.getInfo(track.getArtist(), track.getName(), API_TOKEN);
+			Track trackInfo = Track.getInfo(track.getArtist(), track.getMbid(), API_TOKEN);
 			if(StringUtils.isNotBlank(track.getArtist()) && StringUtils.isNotBlank(track.getAlbum())){
 				Artist artistInfo = Artist.getInfo(track.getArtist(), API_TOKEN);
 				Album albumInfo = Album.getInfo(track.getArtist(), track.getAlbum(), API_TOKEN);
