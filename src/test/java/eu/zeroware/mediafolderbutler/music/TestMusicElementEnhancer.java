@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
@@ -16,6 +19,8 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	private LastfmClient lastfmClient;
 	private MusicBrainzClient musicBrainzClient;
 	
+	
+	@Inject @Named("single.music.element.toenhance") private String SINGLE_MUSIC_ELEMENT_TO_ENHANCE;
 	
 	@Before
 	public void init() {

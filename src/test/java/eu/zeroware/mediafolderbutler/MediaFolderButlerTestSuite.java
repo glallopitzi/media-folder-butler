@@ -8,12 +8,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import eu.zeroware.mediafolderbutler.music.TestLastFMClient;
 import eu.zeroware.mediafolderbutler.music.TestMusicBrainzClient;
+import eu.zeroware.mediafolderbutler.music.TestMusicElementEnhancer;
 
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	TestLastFMClient.class,
-	TestMusicBrainzClient.class
+//	TestLastFMClient.class,
+//	TestMusicBrainzClient.class,
+	TestMusicElementEnhancer.class
 })
 public class MediaFolderButlerTestSuite {
 
