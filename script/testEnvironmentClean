@@ -1,0 +1,19 @@
+#!/bin/bash
+# ------------------------------------------------------------------
+# [gianc] test environment clean
+#          this script clean test environment for mediafolder butler
+# ------------------------------------------------------------------
+
+VERSION=0.1.0
+SUBJECT=test-environment-clean
+
+USAGE="Usage: testEnvironmentClean testFolder"
+
+# --- Options processing -------------------------------------------
+
+if [ $# == 0 ] ; then
+    echo $USAGE
+    exit 1;
+fi
+
+# remove testFolder

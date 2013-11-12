@@ -1,0 +1,20 @@
+#!/bin/bash
+# ------------------------------------------------------------------
+# [gianc] test environment prepare
+#          this script prepare test environment for mediafolder butler
+# ------------------------------------------------------------------
+
+VERSION=0.1.0
+SUBJECT=test-environment-prepare
+
+USAGE="Usage: testEnvironmentPrepare testFolder testContent"
+
+# --- Options processing -------------------------------------------
+
+if [ $# == 0 ] ; then
+    echo $USAGE
+    exit 1;
+fi
+
+# make testFolder if not exists
+# unarchive testContent on testFolder
