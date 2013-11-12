@@ -6,6 +6,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import eu.zeroware.mediafolderbutler.music.TestLastFMClient;
+import eu.zeroware.mediafolderbutler.music.TestMusicBrainzClient;
+
 
 @RunWith(Suite.class)
 @SuiteClasses({ 

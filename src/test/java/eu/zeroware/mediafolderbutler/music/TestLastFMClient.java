@@ -1,4 +1,4 @@
-package eu.zeroware.mediafolderbutler;
+package eu.zeroware.mediafolderbutler.music;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
