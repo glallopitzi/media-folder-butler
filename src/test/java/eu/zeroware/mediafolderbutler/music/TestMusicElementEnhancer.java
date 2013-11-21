@@ -2,6 +2,9 @@ package eu.zeroware.mediafolderbutler.music;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,7 +35,7 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	
 	
 	@Test
-	@Ignore
+//	@Ignore
 	public void testSingleFileEnhancement(){
 		
 		// take a file from the file system
@@ -41,6 +44,10 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 		
 		MusicBrainzFinder finder = musicBrainzClient.getBrainzFinder();
 		assertNotNull(finder);
+		
+//		File file = FileUtils.getFile(SINGLE_MUSIC_ELEMENT_TO_ENHANCE);
+		File file = FileUtils.getFile("~/Documents/Work/tmp/newtesttmp/05 slow hands.mp3");
+		assertNotNull(file);
 		
 	}
 	
