@@ -4,15 +4,14 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
+import eu.zeroware.mediafolderbutler.utils.MediaFilesReader;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.MusicBrainzFinder;
@@ -24,6 +23,7 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	
 	
 	@Inject @Named("single.music.element.toenhance") private String SINGLE_MUSIC_ELEMENT_TO_ENHANCE;
+	
 	
 	@Before
 	public void init() {
@@ -45,9 +45,13 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 		MusicBrainzFinder finder = musicBrainzClient.getBrainzFinder();
 		assertNotNull(finder);
 		
-//		File file = FileUtils.getFile(SINGLE_MUSIC_ELEMENT_TO_ENHANCE);
-		File file = FileUtils.getFile("~/Documents/Work/tmp/newtesttmp/05 slow hands.mp3");
+		MediaFilesReader mediaFilesReader = injector.getInstance(MediaFilesReader.class);
+		assertNotNull(mediaFilesReader);
+		
+		File file = mediaFilesReader.getMediaFileByPath("~/Documents/Work/tmp/newtesttmp/05 slow hands.mp3");
 		assertNotNull(file);
+		
+		
 		
 	}
 	
