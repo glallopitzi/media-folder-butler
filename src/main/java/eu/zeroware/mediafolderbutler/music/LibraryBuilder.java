@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 import eu.zeroware.mediafolderbutler.music.entity.Library;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilder;
+import eu.zeroware.mediafolderbutler.utils.MediaFilesReader;
 
 public class LibraryBuilder extends MediaLibraryWorker{
 	
 	private static Logger logger = LogManager.getLogger(LibraryBuilder.class);
 	
 	@Inject private SongBuilder songBuilder;
+	@Inject private MediaFilesReader mediaFilesReader;
 	
 	private List<Song> foundTracks;
 	private List<File> skippedFiles;
@@ -30,14 +30,10 @@ public class LibraryBuilder extends MediaLibraryWorker{
 		buildLibraryFromTracksArray();
 	}
 	
-	public void buildTracksArray()	 {
-		File root = new File(BASE_MUSIC_FOLDER);
-		logger.info("Try to build library from: " + BASE_MUSIC_FOLDER);
+	public void buildTracksArray() {
+		logger.info("buildTracksArray");
+		Collection<File> listFiles = mediaFilesReader.getAllMediaFilesInFolder(BASE_MUSIC_FOLDER, getAudioExtenstionStringArray());
 		
-		boolean recursive = true;
-		Collection<File> listFiles = FileUtils.listFiles(root, getAudioExtenstionStringArray(), recursive);
-		logger.info(listFiles.size() + " audio files found");
-
 		foundTracks = new ArrayList<Song>();
 		skippedFiles = new ArrayList<File>();
 		
