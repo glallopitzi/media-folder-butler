@@ -32,7 +32,7 @@ public class MediaFolderButlerTestModule extends AbstractModule {
 				properties.load(new FileReader("src/main/java/test.osx.properties"));
 			
 			} else if (osName.contains("Linux")) {
-				properties.load(new FileReader("src/main/java/test.osx.properties"));
+				properties.load(new FileReader("src/main/java/test.linux.properties"));
 				
 			} else {
 				throw new RuntimeException("OS not recognized");

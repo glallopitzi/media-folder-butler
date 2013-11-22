@@ -35,6 +35,9 @@ public class MusicFolderButlerModule extends AbstractModule{
 			} else if (osName.contains("Mac")) {
 				properties.load(new FileReader("src/main/java/app.osx.properties"));
 			
+			} else if (osName.contains("Linux")) {
+				properties.load(new FileReader("src/main/java/app.linux.properties"));
+				
 			} else {
 				throw new RuntimeException("OS not recognized");
 			}
