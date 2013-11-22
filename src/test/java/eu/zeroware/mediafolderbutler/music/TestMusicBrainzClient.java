@@ -49,7 +49,7 @@ public class TestMusicBrainzClient extends MediaFolderButlerTestBase{
 	}
 	
 	@Test
-//	@Ignore
+	@Ignore
 	public void testGetAlbumDetailByTitle(){
 		
 		MusicBrainzFinder finder = client.getBrainzFinder();

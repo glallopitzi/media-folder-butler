@@ -13,8 +13,8 @@ import eu.zeroware.mediafolderbutler.music.TestMusicElementEnhancer;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-//	TestLastFMClient.class,
-//	TestMusicBrainzClient.class,
+	TestLastFMClient.class,
+	TestMusicBrainzClient.class,
 	TestMusicElementEnhancer.class
 })
 public class MediaFolderButlerTestSuite {

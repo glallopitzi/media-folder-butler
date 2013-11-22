@@ -26,7 +26,7 @@ public class TestLastFMClient extends MediaFolderButlerTestBase {
 	
 	
 	@Test
-//	@Ignore
+	@Ignore
 	public void testSearchForArtistByName(){
 		LastfmFinder finder = client.getLastfmFinder();
 		assertNotNull(finder);
