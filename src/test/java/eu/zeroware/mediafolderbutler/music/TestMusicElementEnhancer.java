@@ -1,6 +1,6 @@
 package eu.zeroware.mediafolderbutler.music;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.File;
 
@@ -11,6 +11,8 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
+import eu.zeroware.mediafolderbutler.music.entity.Song;
+import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilder;
 import eu.zeroware.mediafolderbutler.utils.MediaFilesReader;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
@@ -20,9 +22,9 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	
 	private LastfmClient lastfmClient;
 	private MusicBrainzClient musicBrainzClient;
+	private SongBuilder songBuilder;
 	
-	
-	@Inject @Named("single.music.element.toenhance") private String SINGLE_MUSIC_ELEMENT_TO_ENHANCE;
+//	@Inject @Named("single.music.element.toenhance") private String SINGLE_MUSIC_ELEMENT_TO_ENHANCE;
 	
 	
 	@Before
@@ -31,6 +33,8 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 			musicBrainzClient = injector.getInstance(MusicBrainzClient.class);
 		if (lastfmClient == null)
 			lastfmClient = injector.getInstance(LastfmClient.class);
+		if (songBuilder == null)
+			songBuilder = injector.getInstance(SongBuilder.class);
 	}
 	
 	
@@ -39,8 +43,6 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	public void testSingleFileEnhancement(){
 		
 		// take a file from the file system
-		// build the Song element from info from file
-		// search for missing info and write them to the file
 		
 		MusicBrainzFinder finder = musicBrainzClient.getBrainzFinder();
 		assertNotNull(finder);
@@ -48,10 +50,18 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 		MediaFilesReader mediaFilesReader = injector.getInstance(MediaFilesReader.class);
 		assertNotNull(mediaFilesReader);
 		
-		File file = mediaFilesReader.getMediaFileByPath("~/Documents/Work/tmp/newtesttmp/05 slow hands.mp3");
-		assertNotNull(file);
+		File file = mediaFilesReader.getMediaFileByPath(helper.SINGLE_MUSIC_ELEMENT_TO_ENHANCE);
+		assertTrue(file.length() > 0);
+
+		// build the Song element from info from file
+
+		Song song = songBuilder.fromFile(file);
+		assertNotNull(song);
 		
-		
+		System.out.println(song);
+
+		// search for missing info and write them to the file
+
 		
 	}
 	

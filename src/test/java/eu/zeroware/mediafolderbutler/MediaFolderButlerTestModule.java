@@ -48,7 +48,7 @@ public class MediaFolderButlerTestModule extends AbstractModule {
 	
 		bind(SongBuilder.class).to(SongBuilderJAudioTagger.class);
 
-		bind(MediaFolderButlerTestHelper.class);	
+//		bind(MediaFolderButlerTestHelper.class);	
 		
 	}
 
