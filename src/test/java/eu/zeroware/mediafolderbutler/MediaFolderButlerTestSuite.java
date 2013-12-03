@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import eu.zeroware.mediafolderbutler.common.TestLibraryBuilder;
 import eu.zeroware.mediafolderbutler.music.TestLastFMClient;
 import eu.zeroware.mediafolderbutler.music.TestMusicBrainzClient;
 import eu.zeroware.mediafolderbutler.music.TestMusicElementEnhancer;
@@ -13,6 +14,7 @@ import eu.zeroware.mediafolderbutler.music.TestMusicElementEnhancer;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
+	TestLibraryBuilder.class,
 	TestLastFMClient.class,
 	TestMusicBrainzClient.class,
 	TestMusicElementEnhancer.class

@@ -28,6 +28,11 @@ public class Creation {
 	
 	public Creation() {}
 	
+	public Creation(String name) {
+		this.name = name;
+		this.file = null;
+	}
+	
 	public Creation(File file) {
 		this.file = file;
 		this.filename = file.getName();

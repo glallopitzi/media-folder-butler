@@ -1,10 +1,13 @@
-package eu.zeroware.mediafolderbutler;
+package eu.zeroware.mediafolderbutler.common;
 
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.inject.Inject;
+
+import eu.zeroware.mediafolderbutler.LibraryBuilder;
+import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 
 public class TestLibraryBuilder extends MediaFolderButlerTestBase {
 	
