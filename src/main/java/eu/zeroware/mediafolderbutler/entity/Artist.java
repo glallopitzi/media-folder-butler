@@ -3,8 +3,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.search.ArtistSearchResultItem;
-
 public class Artist {
 	
 	private String id;
@@ -27,25 +25,19 @@ public class Artist {
 		creations = new ArrayList<Creation>();
 		creations.add(creation);
 		collections = new ArrayList<Collection>();
-		collections.add(new Collection(creation.getAlbum(), creation.getArtist()));
+		collections.add(new Collection(creation.getCollection(), creation.getArtist()));
 	}
-	
-
-	public Artist(ArtistSearchResultItem artistSearchResultItem) {
-		this.name = artistSearchResultItem.getName();
-	}
-
 	
 	public void addCreation(Creation creation){
 		if(!creations.contains(creation)){
 			creations.add(creation);
 		}
 		
-		addAlbum(creation);
+		addCollection(creation);
 	}
 	
-	public void addAlbum(Creation creation){
-		Collection collection = new Collection(creation.getAlbum(), creation.getArtist());
+	public void addCollection(Creation creation){
+		Collection collection = new Collection(creation.getCollection(), creation.getArtist());
 		if(!collections.contains(collection)){
 			collections.add(collection);
 		}
@@ -70,7 +62,7 @@ public class Artist {
 		builder.append("------------" + "\n");
 		builder.append("Name: " + name + "\n");
 		if(collections != null)
-			builder.append("Albums number: " + collections.size() + "\n");
+			builder.append("Collections number: " + collections.size() + "\n");
 		builder.append("------------" + "\n");
 		return builder.toString();
 	}
@@ -83,11 +75,11 @@ public class Artist {
 		this.name = name;
 	}
 
-	public List<Collection> getAlbums() {
+	public List<Collection> getCollections() {
 		return collections;
 	}
 
-	public void setAlbums(List<Collection> collections) {
+	public void setCollections(List<Collection> collections) {
 		this.collections = collections;
 	}
 
@@ -107,19 +99,19 @@ public class Artist {
 		return genres;
 	}
 
-	public void setMbid(String mbid) {
-		this.id = mbid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getMbid() {
+	public String getId() {
 		return id;
 	}
 
-	public void setSongs(List<Creation> creations) {
+	public void setCreations(List<Creation> creations) {
 		this.creations = creations;
 	}
 
-	public List<Creation> getSongs() {
+	public List<Creation> getCreations() {
 		return creations;
 	}
 }

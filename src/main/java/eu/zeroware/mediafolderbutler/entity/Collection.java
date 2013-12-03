@@ -3,9 +3,9 @@ package eu.zeroware.mediafolderbutler.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.farng.mp3.id3.ID3v1;
-
 public class Collection {
+	private String id;
+	
 	private Artist artist;
 	private String name;
 	private String year;
@@ -14,13 +14,11 @@ public class Collection {
 	private List<String> genres;
 	private List<String> tags;
 
-	private String mbid;
-	
 	public Collection() {}
 
 	public Collection(Creation creation) {
 		this.artist = new Artist(creation.getArtist());
-		this.name = creation.getAlbum();
+		this.name = creation.getCollection();
 		this.year = creation.getYear();
 		this.creations = new ArrayList<Creation>();
 		creations.add(creation);
@@ -35,12 +33,7 @@ public class Collection {
 		this.artist = new Artist(artist);
 	}
 	
-	public Collection(ID3v1 id3v1Tag) {
-		this.name = id3v1Tag.getAlbum();
-		this.year = id3v1Tag.getYear();
-	}
-	
-	public void addSong(Creation creation){
+	public void addCreation(Creation creation){
 		this.creations.add(creation);
 	}
 
@@ -48,14 +41,14 @@ public class Collection {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Album info" + "\n");
+		builder.append("Collection info" + "\n");
 		builder.append("------------" + "\n");
 		builder.append("Name: " + name + "\n");
 		if (artist != null)
 			builder.append("Artist: " + artist.getName() + "\n");
 		if (year != null)
 			builder.append("Year: " + year + "\n");
-		builder.append("Songs number: " + creations.size() + "\n");
+		builder.append("Creations number: " + creations.size() + "\n");
 		builder.append("------------" + "\n");
 		return builder.toString();
 	}
@@ -97,11 +90,11 @@ public class Collection {
 		this.year = year;
 	}
 
-	public List<Creation> getTracks() {
+	public List<Creation> getCreations() {
 		return creations;
 	}
 
-	public void setTracks(List<Creation> creations) {
+	public void setCreations(List<Creation> creations) {
 		this.creations = creations;
 	}
 
@@ -121,11 +114,11 @@ public class Collection {
 		return tags;
 	}
 
-	public void setMbid(String mbid) {
-		this.mbid = mbid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getMbid() {
-		return mbid;
+	public String getId() {
+		return id;
 	}
 }

@@ -10,20 +10,21 @@ public class Creation {
 
 	private static Logger logger = LogManager.getLogger(Creation.class);
 	
+	private String id;
+	
 	private File file;
 	private String filename;
 	private String foldername;
-	private String audioFileType;
+	private String fileType;
 	
 	private String name;
+	
 	private String number;
 
-	private String album;
+	private String collection;
 	private String artist;
 	private String year;
 	private String genre;
-	
-	private String mbid;
 	
 	public Creation() {}
 	
@@ -31,43 +32,37 @@ public class Creation {
 		this.file = file;
 		this.filename = file.getName();
 		this.foldername = file.getParentFile().getName();
-		this.audioFileType = StringUtils.substringAfterLast(file.getName(), ".");
+		this.fileType = StringUtils.substringAfterLast(file.getName(), ".");
 	}
 	
-	
-	public Creation(File file, String audioFileType, String name, String number,
-			String album, String artist, String year) {
+	public Creation(File file, String fileType, String name, String number,
+			String collection, String artist, String year) {
 		super();
 		this.file = file;
-		this.audioFileType = audioFileType;
+		this.fileType = fileType;
 		this.name = name;
 		this.number = number;
-		this.album = album;
+		this.collection = collection;
 		this.artist = artist;
 		this.year = year;
 	}
 
-	
-	
-	
 	public boolean isComplete() {
 		return (StringUtils.isNotBlank(name)) 
 				&& (StringUtils.isNotBlank(number))
 				&& (StringUtils.isNotBlank(artist)) 
-				&& (StringUtils.isNotBlank(album))
+				&& (StringUtils.isNotBlank(collection))
 				&& (StringUtils.isNotBlank(year));
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Song info" + "\n");
+		builder.append("Creation info" + "\n");
 		builder.append("------------" + "\n");
 		builder.append("Name: " + name + "\n");
 		builder.append("Number: " + number + "\n");
-		builder.append("Album: " + album + "\n");
+		builder.append("Collection: " + collection + "\n");
 		builder.append("Artist: " + artist + "\n");
 		builder.append("Year: " + year + "\n");
 		if(file!=null)
@@ -85,7 +80,7 @@ public class Creation {
 		try {
 			return this.name.equals(creation.getName());
 		} catch (Exception e) {
-			logger.error("Some error during song comparison", e);
+			logger.error("Some error during creation comparison", e);
 			return false;
 		}
 	}
@@ -120,12 +115,12 @@ public class Creation {
 		this.number = number;
 	}
 
-	public String getAlbum() {
-		return album;
+	public String getCollection() {
+		return collection;
 	}
 
-	public void setAlbum(String album) {
-		this.album = album;
+	public void setCollection(String collection) {
+		this.collection = collection;
 	}
 
 	public String getArtist() {
@@ -168,20 +163,20 @@ public class Creation {
 		return foldername;
 	}
 
-	public String getMbid() {
-		return mbid;
+	public String getId() {
+		return id;
 	}
 
-	public void setMbid(String mbid) {
-		this.mbid = mbid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setAudioFileType(String audioFileType) {
-		this.audioFileType = audioFileType;
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
 	}
 
-	public String getAudioFileType() {
-		return audioFileType;
+	public String getFileType() {
+		return fileType;
 	}
 
 }

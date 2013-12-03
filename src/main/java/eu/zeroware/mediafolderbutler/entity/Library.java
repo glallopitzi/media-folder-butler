@@ -18,15 +18,15 @@ public class Library {
 	private List<String> genres;
 	private List<String> tags;
 
-	private List<Creation> duplicateMediaElementss;
-	private List<Creation> unknowMediaElements;
+	private List<Creation> duplicatedMediaElements;
+	private List<Creation> unknownMediaElements;
 	
 	public Library() {
 		artists = new ArrayList<Artist>();
 		collections = new ArrayList<Collection>();
 		creations = new ArrayList<Creation>();
-		duplicateMediaElementss = new ArrayList<Creation>();
-		unknowMediaElements = new ArrayList<Creation>();
+		duplicatedMediaElements = new ArrayList<Creation>();
+		unknownMediaElements = new ArrayList<Creation>();
 	}
 
 	
@@ -41,11 +41,9 @@ public class Library {
 	private void addCreationToLibrary(Creation creation) {
 		if(!creations.contains(creation)){
 			creations.add(creation);
-			logger.info("Song: " + creation.getName() + " added to Library");
-
-			
+			logger.info("Creation: " + creation.getName() + " added to Library");
 		}else{
-			duplicateMediaElementss.add(creation);
+			duplicatedMediaElements.add(creation);
 		}
 	}
 
@@ -54,8 +52,6 @@ public class Library {
 		if (!artists.contains(artist)) {
 			artists.add(artist);
 			logger.info("Artist: " + artist.getName() + " added to Library");
-			
-			
 		}else{
 			artists.get(artists.indexOf(artist)).addCreation(creation);
 		}
@@ -65,11 +61,9 @@ public class Library {
 		Collection collection = new Collection(creation);
 		if (!collections.contains(collection)) {
 			collections.add(collection);
-			logger.info("Album: " + collection.getName() + " added to Library");
-			
-			
+			logger.info("Collection: " + collection.getName() + " added to Library");
 		}else{
-			collections.get(collections.indexOf(collection)).addSong(creation);
+			collections.get(collections.indexOf(collection)).addCreation(creation);
 		}
 	}
 
@@ -99,14 +93,6 @@ public class Library {
 		return sb.toString();
 	}
 
-	
-	
-	public <E> String print(){
-		
-		return null;
-	}
-	
-	
 	
 	
 	
@@ -152,19 +138,19 @@ public class Library {
 	}
 
 	public void setDuplicateTracks(List<Creation> duplicateTracks) {
-		this.duplicateMediaElementss = duplicateTracks;
+		this.duplicatedMediaElements = duplicateTracks;
 	}
 
 	public List<Creation> getDuplicateTracks() {
-		return duplicateMediaElementss;
+		return duplicatedMediaElements;
 	}
 
 	public void setUnknowTracks(List<Creation> unknowTracks) {
-		this.unknowMediaElements = unknowTracks;
+		this.unknownMediaElements = unknowTracks;
 	}
 
 	public List<Creation> getUnknowTracks() {
-		return unknowMediaElements;
+		return unknownMediaElements;
 	}
 
 }
