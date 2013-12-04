@@ -25,45 +25,55 @@ public class Library {
 		artists = new ArrayList<Artist>();
 		collections = new ArrayList<Collection>();
 		creations = new ArrayList<Creation>();
+		genres = new ArrayList<String>();
+		tags = new ArrayList<String>();
 		duplicatedMediaElements = new ArrayList<Creation>();
 		unknownMediaElements = new ArrayList<Creation>();
 	}
 
 	
 	public void addMediaElementsToLibrary(Creation creation) {
-		addCreationToLibrary(creation);
-		addCollectionToLibrary(creation);
-		addArtistToLibrary(creation);
-	}
-
-	
-	
-	private void addCreationToLibrary(Creation creation) {
-		if(!creations.contains(creation)){
-			creations.add(creation);
-			logger.info("Creation: " + creation.getName() + " added to Library");
-		}else{
-			duplicatedMediaElements.add(creation);
+		if(addCreationToLibrary(creation)){
+			if(addCollectionToLibrary(creation)){
+				addArtistToLibrary(creation);
+			}
 		}
 	}
 
-	private void addArtistToLibrary(Creation creation) {
+	
+	
+	private boolean addCreationToLibrary(Creation creation) {
+		if(!creations.contains(creation)){
+			creations.add(creation);
+			logger.info("Creation: " + creation.getName() + " added to Library");
+			return true;
+		}else{
+			duplicatedMediaElements.add(creation);
+			return false;
+		}
+	}
+
+	private boolean addArtistToLibrary(Creation creation) {
 		Artist artist = new Artist(creation);
 		if (!artists.contains(artist)) {
 			artists.add(artist);
 			logger.info("Artist: " + artist.getName() + " added to Library");
+			return true;
 		}else{
 			artists.get(artists.indexOf(artist)).addCreation(creation);
+			return false;
 		}
 	}
 
-	private void addCollectionToLibrary(Creation creation) {
+	private boolean addCollectionToLibrary(Creation creation) {
 		Collection collection = new Collection(creation);
 		if (!collections.contains(collection)) {
 			collections.add(collection);
 			logger.info("Collection: " + collection.getName() + " added to Library");
+			return true;
 		}else{
 			collections.get(collections.indexOf(collection)).addCreation(creation);
+			return false;
 		}
 	}
 
@@ -105,11 +115,11 @@ public class Library {
 		this.artists = artists;
 	}
 
-	public List<Collection> getAlbums() {
+	public List<Collection> getCollections() {
 		return collections;
 	}
 
-	public void setAlbums(List<Collection> collections) {
+	public void setCollections(List<Collection> collections) {
 		this.collections = collections;
 	}
 
@@ -129,27 +139,27 @@ public class Library {
 		return tags;
 	}
 
-	public void setSongs(List<Creation> creations) {
+	public void setCreations(List<Creation> creations) {
 		this.creations = creations;
 	}
 
-	public List<Creation> getSongs() {
+	public List<Creation> getCreations() {
 		return creations;
 	}
 
-	public void setDuplicateTracks(List<Creation> duplicateTracks) {
-		this.duplicatedMediaElements = duplicateTracks;
+	public void setDuplicatedMediaElements(List<Creation> duplicatedMediaElements) {
+		this.duplicatedMediaElements = duplicatedMediaElements;
 	}
 
-	public List<Creation> getDuplicateTracks() {
+	public List<Creation> getDuplicatedMediaElements() {
 		return duplicatedMediaElements;
 	}
 
-	public void setUnknowTracks(List<Creation> unknowTracks) {
-		this.unknownMediaElements = unknowTracks;
+	public void setUnknownMediaElements(List<Creation> unknownMediaElements) {
+		this.unknownMediaElements = unknownMediaElements;
 	}
 
-	public List<Creation> getUnknowTracks() {
+	public List<Creation> getUnknownMediaElements() {
 		return unknownMediaElements;
 	}
 

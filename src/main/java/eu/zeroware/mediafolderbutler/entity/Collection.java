@@ -3,7 +3,13 @@ package eu.zeroware.mediafolderbutler.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Collection {
+	
+	private static Logger logger = LogManager.getLogger(Collection.class);
+	
 	private String id;
 	
 	private Artist artist;
@@ -59,7 +65,7 @@ public class Collection {
 		try {
 			return this.name.equals(collection.getName()) && this.artist.getName().equals(collection.getArtist().getName());
 		} catch (Exception e) {
-			// logger.warn
+			logger.warn("some error durinq two collection object comparison, maybe there are some null value");
 			return false;
 		} 
 	}
