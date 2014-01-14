@@ -8,11 +8,12 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
+import eu.zeroware.mediafolderbutler.Enhancer;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 
 
-public class LibraryEnhancer extends MediaLibraryWorker{
+public class LibraryEnhancer extends MediaLibraryWorker implements Enhancer {
 	
 	private static Logger logger = LogManager.getLogger(LibraryEnhancer.class);
 	

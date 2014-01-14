@@ -1,5 +1,12 @@
 package eu.zeroware.mediafolderbutler.book;
 
-public class BookLibraryFlusher extends BookLibraryWorker {
+import eu.zeroware.mediafolderbutler.Flusher;
+
+public class BookLibraryFlusher extends BookLibraryWorker implements Flusher {
+
+	public void flush() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

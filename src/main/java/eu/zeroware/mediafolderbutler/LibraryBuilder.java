@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
-public class LibraryBuilder extends LibraryWorker{
+public class LibraryBuilder extends LibraryWorker implements Builder {
 	
 	private static Logger logger = LogManager.getLogger(LibraryBuilder.class);
 	

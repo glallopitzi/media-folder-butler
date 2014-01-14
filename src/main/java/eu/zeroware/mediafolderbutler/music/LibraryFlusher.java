@@ -10,12 +10,13 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
+import eu.zeroware.mediafolderbutler.Flusher;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.MediaFilesWriter;
 
-public class LibraryFlusher extends MediaLibraryWorker {
+public class LibraryFlusher extends MediaLibraryWorker implements Flusher {
 
 	private static Logger logger = LogManager.getLogger(LibraryFlusher.class);
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";

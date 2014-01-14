@@ -1,5 +1,12 @@
 package eu.zeroware.mediafolderbutler.book;
 
-public class BookLibraryEnhancer extends BookLibraryWorker {
+import eu.zeroware.mediafolderbutler.Enhancer;
+
+public class BookLibraryEnhancer extends BookLibraryWorker implements Enhancer {
+
+	public void enhance() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
