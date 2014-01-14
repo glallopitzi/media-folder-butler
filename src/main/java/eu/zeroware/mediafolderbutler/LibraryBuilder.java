@@ -15,7 +15,9 @@ public class LibraryBuilder extends LibraryWorker{
 	
 	public void build(){
 		logger.info("in buildLibrary");
-
+		if(builderMusic) musicLibraryBuilder.build();
+		if(builderMovie) movieLibraryBuilder.build();
+		if(builderBook) bookLibraryBuilder.build();
 	}
 	
 }

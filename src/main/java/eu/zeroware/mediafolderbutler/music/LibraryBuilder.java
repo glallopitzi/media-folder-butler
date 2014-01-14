@@ -26,6 +26,7 @@ public class LibraryBuilder extends MediaLibraryWorker{
 	private List<File> skippedFiles;
 	
 	public void build(){
+		logger.debug("MusicLibraryWorker.build()");
 		buildTracksArray();
 		buildLibraryFromTracksArray();
 	}
