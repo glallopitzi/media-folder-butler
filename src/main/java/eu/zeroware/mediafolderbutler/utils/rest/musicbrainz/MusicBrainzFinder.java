@@ -3,6 +3,7 @@ package eu.zeroware.mediafolderbutler.utils.rest.musicbrainz;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -21,6 +22,8 @@ import com.google.inject.name.Named;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
+import eu.zeroware.mediafolderbutler.MediaFolderButlerModule;
+import eu.zeroware.mediafolderbutler.MediaFolderButlerTestModule;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
@@ -327,6 +330,7 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	}
 	
 	private String makeRESTSearchRequest(String resource, String query){
+		checkForRequestBound();
 		WebResource r = c
 				.resource(resource)
 				.queryParam("query", query)
@@ -344,6 +348,7 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	
 	
 	private String makeRESTLookupRequest(String resource, String id, String inc){
+		checkForRequestBound();
 		WebResource r = c
 				.resource(BASE_SERVICE_URL)
 				.path(resource)
@@ -361,6 +366,7 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	}
 	
 	private String makeRESTBrowseRequest(String browsedesource, String linkedResource, String id){
+		checkForRequestBound();
 		WebResource r = c
 				.resource(BASE_SERVICE_URL)
 				.path(browsedesource)
@@ -377,6 +383,7 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 		return "";
 	}
 
+	
 
 	/**
 	 * TO REMOVE-------------------
@@ -386,20 +393,20 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Injector injector = Guice.createInjector();
+		Injector injector = Guice.createInjector(new MediaFolderButlerModule());
 		MusicBrainzFinder finder = injector.getInstance(MusicBrainzFinder.class);
 		
 		
 		logger.info("-------- Start");
 		
 		
-		finder.browseArtist("b7ffd2af-418f-4be2-bdd1-22f8b48613da");
-		
-		finder.browseAlbum("0d9e2d13-3a3b-4823-b7bf-1f992697c527");
-		
-		finder.browseSong("787cf6d0-a44b-4562-aa5c-5c4b244576c6");
-		
-		finder.searchForAlbumByName("the fragile");
+//		finder.browseArtist("b7ffd2af-418f-4be2-bdd1-22f8b48613da");
+//		
+//		finder.browseAlbum("0d9e2d13-3a3b-4823-b7bf-1f992697c527");
+//		
+//		finder.browseSong("787cf6d0-a44b-4562-aa5c-5c4b244576c6");
+//		
+//		finder.searchForAlbumByName("the fragile");
 		
 //		Album searchForAlbumByNameAndArtist = finder.searchForAlbumByNameAndArtist("broken", "nine inch nails");
 //		if(searchForAlbumByNameAndArtist != null)
@@ -409,14 +416,25 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 //		if(searchForArtistByName != null)
 //			logger.info(searchForArtistByName.toString());
 		
-		List<Song> searchForSongByNameAndArtistAndAlbum = finder.searchForSongByNameAndArtistAndAlbum("the wretched", "nine inch nails", "the fragile");
-		if(searchForSongByNameAndArtistAndAlbum != null){
-			
-		}
+//		List<Song> searchForSongByNameAndArtistAndAlbum = finder.searchForSongByNameAndArtistAndAlbum("the wretched", "nine inch nails", "the fragile");
+//		if(searchForSongByNameAndArtistAndAlbum != null){
+//			
+//		}
 		
 //		Artist lookupArtistWithAlbums = finder.lookupArtistWithAlbums("b7ffd2af-418f-4be2-bdd1-22f8b48613da");
 //		Artist searchForArtistByName = finder.searchForArtistByName("Pearl Jam");
 //		logger.info(searchForArtistByName.toString());
+		
+		
+//		System.out.println("before first request: " + new Date().toGMTString());
+//		finder.checkForRequestBound();
+//		System.out.println("after first request: " + new Date().toGMTString());
+//		finder.checkForRequestBound();
+//		System.out.println("after second request: " + new Date().toGMTString());
+//		finder.checkForRequestBound();
+//		System.out.println("after third request: " + new Date().toGMTString());
+//		finder.checkForRequestBound();
+//		System.out.println("after forth request: " + new Date().toGMTString());
 		
 		logger.info("-------- Stop");
 	}

@@ -47,6 +47,7 @@ public class LastfmFinder extends JerseyRESTClient {
 	private void init(){
 		Caller.getInstance().setUserAgent( getRealUserAgent() );
 		Caller.getInstance().setDebugMode(true);
+		checkForRequestBound();
 	}
 	
 	
@@ -156,6 +157,7 @@ public class LastfmFinder extends JerseyRESTClient {
 	}
 	
 	public void getUserLastWeekCharts(String userName){
+		init();
 	    Chart<Artist> chart = User.getWeeklyArtistChart(userName, 10, API_TOKEN);
 	    DateFormat format = DateFormat.getDateInstance();
 	    String from = format.format(chart.getFrom());
