@@ -21,9 +21,10 @@ dependencies {
     compile 'log4j:log4j:1.2.17'
     compile 'commons-io:commons-io:2.4'
     compile 'com.google.inject:guice:3.0'
-	compile "javax.ws.rs:javax.ws.rs-api:2.0.1"
+	compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
     compile 'commons-codec:commons-codec:1.8'
-    compile "com.sun.jersey:jersey-client:1.17.1"
+    compile 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'com.sun.jersey:jersey-client:1.17.1'
     compile 'org.apache.commons:commons-lang3:3.1'
     compile 'org:jaudiotagger:2.0.3'
     compile 'asm:asm:3.3.1'

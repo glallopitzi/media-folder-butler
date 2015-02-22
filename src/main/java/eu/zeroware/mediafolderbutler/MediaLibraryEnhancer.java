@@ -5,14 +5,18 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
+import eu.zeroware.mediafolderbutler.book.BookLibraryEnhancer;
+import eu.zeroware.mediafolderbutler.movie.MovieLibraryEnhancer;
+import eu.zeroware.mediafolderbutler.music.MusicLibraryEnhancer;
+
 
 public class MediaLibraryEnhancer extends LibraryWorker implements Enhancer {
 	
 	private static Logger logger = LogManager.getLogger(MediaLibraryEnhancer.class);	
 	
-	@Inject private eu.zeroware.mediafolderbutler.music.MusicLibraryEnhancer musicLibraryEnhancer;
-	@Inject private eu.zeroware.mediafolderbutler.movie.MovieLibraryEnhancer movieLibraryEnhancer;
-	@Inject private eu.zeroware.mediafolderbutler.book.BookLibraryEnhancer bookLibraryEnhancer;
+	@Inject private MusicLibraryEnhancer musicLibraryEnhancer;
+	@Inject private MovieLibraryEnhancer movieLibraryEnhancer;
+	@Inject private BookLibraryEnhancer bookLibraryEnhancer;
 	
 	public void enhance(){
 		logger.info("in enhanceLibrary");
