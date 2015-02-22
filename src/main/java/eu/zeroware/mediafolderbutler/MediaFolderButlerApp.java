@@ -12,9 +12,9 @@ public class MediaFolderButlerApp {
 
 	private static Logger logger = LogManager.getLogger(MediaFolderButlerApp.class);
 	
-	@Inject private LibraryBuilder libraryBuilder;
-	@Inject private LibraryEnhancer libraryEnhancer;
-	@Inject private LibraryFlusher libraryFlusher;
+	@Inject private MediaLibraryBuilder libraryBuilder;
+	@Inject private MediaLibraryEnhancer libraryEnhancer;
+	@Inject private MediaLibraryFlusher libraryFlusher;
 	
 	////////////////////////////////////////////////////////////	
 	// BUILD STEP

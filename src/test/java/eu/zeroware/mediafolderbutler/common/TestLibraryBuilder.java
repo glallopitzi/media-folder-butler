@@ -6,17 +6,17 @@ import org.junit.Test;
 
 import com.google.inject.Inject;
 
-import eu.zeroware.mediafolderbutler.LibraryBuilder;
+import eu.zeroware.mediafolderbutler.MediaLibraryBuilder;
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 
 public class TestLibraryBuilder extends MediaFolderButlerTestBase {
 	
-	@Inject private LibraryBuilder libraryBuilder;
+	@Inject private MediaLibraryBuilder libraryBuilder;
 	
 	@Before
 	public void init() {
 		if (libraryBuilder == null)
-			libraryBuilder = injector.getInstance(LibraryBuilder.class);
+			libraryBuilder = injector.getInstance(MediaLibraryBuilder.class);
 	}
 	
 	@Test

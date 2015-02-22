@@ -12,9 +12,9 @@ public class MusicFolderButlerApp {
 
 	private static Logger logger = LogManager.getLogger(MusicFolderButlerApp.class);
 	
-	@Inject private LibraryBuilder libraryBuilder;
-	@Inject private LibraryEnhancer libraryEnhancer;
-	@Inject private LibraryFlusher libraryFlusher;
+	@Inject private MusicLibraryBuilder libraryBuilder;
+	@Inject private MusicLibraryEnhancer libraryEnhancer;
+	@Inject private MusicLibraryFlusher libraryFlusher;
 	
 	////////////////////////////////////////////////////////////	
 	// BUILD STEP

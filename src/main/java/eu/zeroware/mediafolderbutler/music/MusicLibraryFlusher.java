@@ -16,9 +16,9 @@ import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.utils.MediaFilesWriter;
 
-public class LibraryFlusher extends MediaLibraryWorker implements Flusher {
+public class MusicLibraryFlusher extends MusicLibraryWorker implements Flusher {
 
-	private static Logger logger = LogManager.getLogger(LibraryFlusher.class);
+	private static Logger logger = LogManager.getLogger(MusicLibraryFlusher.class);
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
 	private List<File> skippedFiles;
 

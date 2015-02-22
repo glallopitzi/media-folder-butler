@@ -8,7 +8,7 @@ import com.google.inject.name.Named;
 import eu.zeroware.mediafolderbutler.LibraryWorker;
 import eu.zeroware.mediafolderbutler.music.entity.Library;
 
-public abstract class MediaLibraryWorker extends LibraryWorker{
+public abstract class MusicLibraryWorker extends LibraryWorker{
 		
 	// config hardcoded
 	@Inject @Named("music.audio.files.extentions") protected String AUDIO_EXT_STRING;

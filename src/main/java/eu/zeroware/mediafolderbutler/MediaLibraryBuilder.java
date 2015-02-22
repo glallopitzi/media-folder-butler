@@ -5,13 +5,17 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
-public class LibraryBuilder extends LibraryWorker implements Builder {
+import eu.zeroware.mediafolderbutler.book.BookLibraryBuilder;
+import eu.zeroware.mediafolderbutler.movie.MovieLibraryBuilder;
+import eu.zeroware.mediafolderbutler.music.MusicLibraryBuilder;
+
+public class MediaLibraryBuilder extends LibraryWorker implements Builder {
 	
-	private static Logger logger = LogManager.getLogger(LibraryBuilder.class);
+	private static Logger logger = LogManager.getLogger(MediaLibraryBuilder.class);
 	
-	@Inject private eu.zeroware.mediafolderbutler.music.LibraryBuilder musicLibraryBuilder;
-	@Inject private eu.zeroware.mediafolderbutler.movie.MovieLibraryBuilder movieLibraryBuilder;
-	@Inject private eu.zeroware.mediafolderbutler.book.BookLibraryBuilder bookLibraryBuilder;
+	@Inject private MusicLibraryBuilder musicLibraryBuilder;
+	@Inject private MovieLibraryBuilder movieLibraryBuilder;
+	@Inject private BookLibraryBuilder bookLibraryBuilder;
 	
 	public void build(){
 		logger.info("in buildLibrary");

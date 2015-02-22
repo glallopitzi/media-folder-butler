@@ -13,9 +13,9 @@ import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
 import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 
 
-public class LibraryEnhancer extends MediaLibraryWorker implements Enhancer {
+public class MusicLibraryEnhancer extends MusicLibraryWorker implements Enhancer {
 	
-	private static Logger logger = LogManager.getLogger(LibraryEnhancer.class);
+	private static Logger logger = LogManager.getLogger(MusicLibraryEnhancer.class);
 	
 	@Inject private MusicBrainzClient musicBrainzClient;
 	@Inject private LastfmClient lastfmClient;

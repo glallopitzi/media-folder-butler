@@ -15,9 +15,9 @@ import eu.zeroware.mediafolderbutler.music.entity.Song;
 import eu.zeroware.mediafolderbutler.music.id3tag.SongBuilder;
 import eu.zeroware.mediafolderbutler.utils.MediaFilesReader;
 
-public class LibraryBuilder extends MediaLibraryWorker{
+public class MusicLibraryBuilder extends MusicLibraryWorker{
 	
-	private static Logger logger = LogManager.getLogger(LibraryBuilder.class);
+	private static Logger logger = LogManager.getLogger(MusicLibraryBuilder.class);
 	
 	@Inject private SongBuilder songBuilder;
 	@Inject private MediaFilesReader mediaFilesReader;
