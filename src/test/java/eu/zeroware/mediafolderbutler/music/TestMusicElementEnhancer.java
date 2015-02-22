@@ -1,14 +1,13 @@
 package eu.zeroware.mediafolderbutler.music;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
@@ -39,7 +38,7 @@ public class TestMusicElementEnhancer extends MediaFolderButlerTestBase {
 	
 	
 	@Test
-//	@Ignore
+	@Ignore
 	public void testSingleFileEnhancement(){
 		
 		// take a file from the file system

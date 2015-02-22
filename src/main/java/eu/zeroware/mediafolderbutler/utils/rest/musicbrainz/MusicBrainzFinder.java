@@ -3,7 +3,6 @@ package eu.zeroware.mediafolderbutler.utils.rest.musicbrainz;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -23,7 +22,6 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerModule;
-import eu.zeroware.mediafolderbutler.MediaFolderButlerTestModule;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
