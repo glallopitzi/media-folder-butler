@@ -11,6 +11,8 @@ public class Library {
 
 	private static Logger logger = LogManager.getLogger(Library.class);
 	
+	private MediaFileType libraryType;
+	
 	private List<Artist> artists;
 	private List<Collection> collections;
 	private List<Creation> creations;
@@ -161,6 +163,16 @@ public class Library {
 
 	public List<Creation> getUnknownMediaElements() {
 		return unknownMediaElements;
+	}
+
+
+	public MediaFileType getLibraryType() {
+		return libraryType;
+	}
+
+
+	public void setLibraryType(MediaFileType libraryType) {
+		this.libraryType = libraryType;
 	}
 
 }

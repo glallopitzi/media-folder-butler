@@ -20,7 +20,9 @@ public class MediaLibraryEnhancer extends LibraryWorker implements Enhancer {
 	
 	public void enhance(){
 		logger.info("in enhanceLibrary");
-		// TODO		
+		if(builderMusic) musicLibraryEnhancer.enhance();
+		if(builderMovie) movieLibraryEnhancer.enhance();
+		if(builderBook) bookLibraryEnhancer.enhance();
 	}
 	
 }

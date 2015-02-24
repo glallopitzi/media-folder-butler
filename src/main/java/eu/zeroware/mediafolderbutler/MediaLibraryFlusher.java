@@ -20,7 +20,9 @@ public class MediaLibraryFlusher extends LibraryWorker implements Flusher {
 	
 	public void flush(){
 		logger.info("in flushLibrary");
-			// TODO
+		if(builderMusic) musicLibraryFlusher.flush();
+		if(builderMovie) movieLibraryFlusher.flush();
+		if(builderBook) bookLibraryFlusher.flush();
 	}
 
 }
