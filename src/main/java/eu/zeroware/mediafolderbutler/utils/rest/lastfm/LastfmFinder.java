@@ -76,7 +76,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return null;
 	}
 	
-	public List<eu.zeroware.mediafolderbutler.music.entity.Song> searchForSongByName(String songName){
+	public List<Song> searchForSongByName(String songName){
 		init();
 		List<Song> songs = new ArrayList<Song>();
 		
@@ -110,7 +110,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return songs;
 	}
 	
-	public List<eu.zeroware.mediafolderbutler.music.entity.Song> searchForSongByNameAndArtist(String songName, String artistName){
+	public List<Song> searchForSongByNameAndArtist(String songName, String artistName){
 		init();
 		List<Song> songs = new ArrayList<Song>();
 
@@ -144,7 +144,7 @@ public class LastfmFinder extends JerseyRESTClient {
 		return songs;
 	}
 	
-	public eu.zeroware.mediafolderbutler.music.entity.Song searchForSongByNameArtistAndAlbum(String songName, String artistName, String albumName){
+	public Song searchForSongByNameArtistAndAlbum(String songName, String artistName, String albumName){
 		init();
 		
 		logger.info("Artist search result for: " + artistName);

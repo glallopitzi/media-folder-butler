@@ -1,6 +1,7 @@
 package eu.zeroware.mediafolderbutler.music;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ import eu.zeroware.mediafolderbutler.utils.rest.lastfm.LastfmFinder;
 
 public class TestLastFMClient extends MediaFolderButlerTestBase {
 
+	private static final String TEST_SONG_NAME = "come as you are";
+	private static final String TEST_ARTIST_NAME = "Madonna";
+	
 	private LastfmClient client;
 	
 	@Before
@@ -26,11 +30,11 @@ public class TestLastFMClient extends MediaFolderButlerTestBase {
 	
 	
 	@Test
-	@Ignore
 	public void testSearchForArtistByName(){
-		LastfmFinder finder = client.getLastfmFinder();
+		final LastfmFinder finder = client.getLastfmFinder();
 		assertNotNull(finder);
-		List<Artist> searchForArtistByName = finder.searchForArtistByName("Madonna");
+		
+		final List<Artist> searchForArtistByName = finder.searchForArtistByName(TEST_ARTIST_NAME);
 		assertNotNull(searchForArtistByName);
 		assertTrue(searchForArtistByName.size() > 0);
 	}
@@ -38,9 +42,10 @@ public class TestLastFMClient extends MediaFolderButlerTestBase {
 	@Test
 	@Ignore
 	public void testSearchForSongByName(){
-		LastfmFinder finder = client.getLastfmFinder();
+		final LastfmFinder finder = client.getLastfmFinder();
 		assertNotNull(finder);
-		List<Song> searchForSongByName = finder.searchForSongByName("come as you are");
+
+		final List<Song> searchForSongByName = finder.searchForSongByName(TEST_SONG_NAME);
 		assertNotNull(searchForSongByName);
 		assertTrue(searchForSongByName.size() > 0);
 	}
