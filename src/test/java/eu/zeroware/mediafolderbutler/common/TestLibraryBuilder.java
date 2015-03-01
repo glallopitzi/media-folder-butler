@@ -1,6 +1,5 @@
 package eu.zeroware.mediafolderbutler.common;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,9 +12,9 @@ public class TestLibraryBuilder extends MediaFolderButlerTestBase {
 	private MediaLibraryBuilder libraryBuilder;
 	
 	@Test
-	@Ignore
+//	@Ignore
 	public void testLibraryBuild(){
-		
+		System.out.println("here");
 	}
 	
 }

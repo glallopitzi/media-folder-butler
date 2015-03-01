@@ -2,15 +2,9 @@ package eu.zeroware.mediafolderbutler;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.CommandLineRunner;
 
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class MediaFolderButlerApplication {
+public class MediaFolderButlerApplication implements CommandLineRunner {
 
 	private static final Logger logger = Logger.getLogger(MediaFolderButlerApplication.class);
 	
@@ -49,9 +43,13 @@ public class MediaFolderButlerApplication {
 		logger.info("flushLibrary - END");
 	}
 	
-	
-	public static void main(String[] args) {
-        SpringApplication.run(MediaFolderButlerApplication.class, args);
-    }
+	@Override
+	public void run(String... args) throws Exception {
+		logger.debug("run");
+		
+//		buildLibrary();
+//		enhanceLibrary();
+//		flushLibrary();
+	}
 	
 }

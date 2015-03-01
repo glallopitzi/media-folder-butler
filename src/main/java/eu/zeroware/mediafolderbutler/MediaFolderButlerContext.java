@@ -11,4 +11,9 @@ public class MediaFolderButlerContext {
 	SongBuilder getSongBuilder(){
 		return new SongBuilderJAudioTagger();
 	}
+	
+	@Bean
+	MediaFolderButlerApplication getMediaFolderButlerApplication(){
+		return new MediaFolderButlerApplication();
+	}
 }
