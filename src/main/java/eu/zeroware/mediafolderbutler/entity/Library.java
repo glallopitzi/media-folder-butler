@@ -3,13 +3,12 @@ package eu.zeroware.mediafolderbutler.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 
 public class Library {
 
-	private static Logger logger = LogManager.getLogger(Library.class);
+	private static final Logger logger = Logger.getLogger(Library.class);
 	
 	private MediaFileType libraryType;
 	

@@ -3,7 +3,6 @@ package eu.zeroware.mediafolderbutler.music.id3tag;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.farng.mp3.MP3File;
 import org.farng.mp3.id3.AbstractID3v2;
@@ -13,7 +12,7 @@ import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class SongBuilderJavaID3tag implements SongBuilder {
 
-	private static Logger logger = LogManager.getLogger(SongBuilderJavaID3tag.class);
+	private static final Logger logger = Logger.getLogger(SongBuilderJavaID3tag.class);
 	
 	public Song fromFile(File sourceFile) {
 		MP3File mp3file = null;

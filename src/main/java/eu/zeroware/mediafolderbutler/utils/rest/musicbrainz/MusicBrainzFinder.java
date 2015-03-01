@@ -11,7 +11,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -40,7 +39,7 @@ import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.search.SongSearchRes
 
 public class MusicBrainzFinder extends JerseyRESTClient {
 	
-	private static Logger logger = LogManager.getLogger(MusicBrainzFinder.class);
+	private static final Logger logger = Logger.getLogger(MusicBrainzFinder.class);
 	
 	@Value("musicbrainz.baseServiceUrl") 
 	private String BASE_SERVICE_URL;

@@ -1,6 +1,5 @@
 package eu.zeroware.mediafolderbutler;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +10,7 @@ import eu.zeroware.mediafolderbutler.music.MusicLibraryFlusher;
 
 public class MediaLibraryFlusher extends LibraryWorker implements Flusher {
 	
-	private static Logger logger = LogManager.getLogger(MediaLibraryFlusher.class);	
+	private static final Logger logger = Logger.getLogger(MediaLibraryFlusher.class);	
 	
 	@Autowired
 	private MusicLibraryFlusher musicLibraryFlusher;

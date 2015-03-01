@@ -3,12 +3,11 @@ package eu.zeroware.mediafolderbutler.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public class Collection {
 	
-	private static Logger logger = LogManager.getLogger(Collection.class);
+	private static final Logger logger = Logger.getLogger(Collection.class);
 	
 	private String id;
 	

@@ -3,7 +3,6 @@ package eu.zeroware.mediafolderbutler.music;
 import java.io.File;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +13,7 @@ import eu.zeroware.mediafolderbutler.utils.rest.MusicBrainzClient;
 
 public class MusicLibraryEnhancer extends MusicLibraryWorker implements Enhancer {
 	
-	private static Logger logger = LogManager.getLogger(MusicLibraryEnhancer.class);
+	private static final Logger logger = Logger.getLogger(MusicLibraryEnhancer.class);
 	
 	@Autowired
 	private MusicBrainzClient musicBrainzClient;

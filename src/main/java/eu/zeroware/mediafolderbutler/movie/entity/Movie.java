@@ -2,14 +2,13 @@ package eu.zeroware.mediafolderbutler.movie.entity;
 
 import java.io.File;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import eu.zeroware.mediafolderbutler.entity.Creation;
 
 public class Movie extends Creation {
 
-	private static Logger logger = LogManager.getLogger(Movie.class);
+	private static final Logger logger = Logger.getLogger(Movie.class);
 	
 	public Movie() {logger.debug("new Movie");}
 	

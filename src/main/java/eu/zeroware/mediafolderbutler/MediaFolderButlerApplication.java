@@ -1,6 +1,5 @@
 package eu.zeroware.mediafolderbutler;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class MediaFolderButlerApplication {
 
-	private static Logger logger = LogManager.getLogger(MediaFolderButlerApplication.class);
+	private static final Logger logger = Logger.getLogger(MediaFolderButlerApplication.class);
 	
 	@Autowired
 	private MediaLibraryBuilder libraryBuilder;

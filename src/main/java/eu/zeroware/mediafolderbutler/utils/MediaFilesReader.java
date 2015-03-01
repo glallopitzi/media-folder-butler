@@ -4,12 +4,11 @@ import java.io.File;
 import java.util.Collection;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public class MediaFilesReader {
 	
-	private static Logger logger = LogManager.getLogger(MediaFilesReader.class);
+	private static final Logger logger = Logger.getLogger(MediaFilesReader.class);
 	
 	public Collection<File> getAllMediaFilesInFolder(String root, String[] allowedFilesExtension){
 		logger.info("getAllMediaFilesInFolder");

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +15,7 @@ import eu.zeroware.mediafolderbutler.utils.MediaFilesReader;
 
 public class MusicLibraryBuilder extends MusicLibraryWorker{
 	
-	private static Logger logger = LogManager.getLogger(MusicLibraryBuilder.class);
+	private static final Logger logger = Logger.getLogger(MusicLibraryBuilder.class);
 	
 	@Autowired
 	private SongBuilder songBuilder;

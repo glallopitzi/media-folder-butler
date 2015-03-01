@@ -12,7 +12,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -30,7 +29,7 @@ import eu.zeroware.mediafolderbutler.utils.rest.JerseyRESTClient;
 
 public class LastfmFinder extends JerseyRESTClient {
 	
-	private static Logger logger = LogManager.getLogger(LastfmFinder.class);
+	private static final Logger logger = Logger.getLogger(LastfmFinder.class);
 	
 	@Value("lastfm.baseServiceUrl") private String BASE_SERVICE_URL;
 	@Value("lastfm.apiToken") private String API_TOKEN;

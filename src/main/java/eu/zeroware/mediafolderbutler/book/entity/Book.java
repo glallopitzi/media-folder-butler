@@ -3,14 +3,13 @@ package eu.zeroware.mediafolderbutler.book.entity;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import eu.zeroware.mediafolderbutler.entity.Creation;
 
 public class Book extends Creation {
 
-	private static Logger logger = LogManager.getLogger(Book.class);
+	private static final Logger logger = Logger.getLogger(Book.class);
 	
 	public Book() {}
 	

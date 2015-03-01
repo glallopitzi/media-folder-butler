@@ -1,6 +1,5 @@
 package eu.zeroware.mediafolderbutler.book.entity;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import eu.zeroware.mediafolderbutler.entity.MediaFileType;
@@ -8,7 +7,7 @@ import eu.zeroware.mediafolderbutler.entity.MediaFileType;
 
 public class Library extends eu.zeroware.mediafolderbutler.entity.Library {
 
-	private static Logger logger = LogManager.getLogger(Library.class);
+	private static final Logger logger = Logger.getLogger(Library.class);
 	
 	public Library() {
 		super();

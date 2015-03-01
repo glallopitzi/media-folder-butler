@@ -2,7 +2,6 @@ package eu.zeroware.mediafolderbutler.utils.rest;
 
 import java.util.List;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +12,7 @@ import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.MusicBrainzFinder;
 
 public class MusicBrainzClient implements ExternalServicesClient {
 	
-	private static Logger logger = LogManager.getLogger(MusicBrainzFinder.class);
+	private static final Logger logger = Logger.getLogger(MusicBrainzFinder.class);
 	
 	@Autowired
 	private MusicBrainzFinder brainzFinder;

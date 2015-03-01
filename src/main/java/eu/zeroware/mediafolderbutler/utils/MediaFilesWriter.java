@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -13,10 +12,11 @@ import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class MediaFilesWriter {
 
+	private static final Logger logger = Logger.getLogger(MediaFilesWriter.class);
+	
 	@Value("debug:true")
 	protected Boolean debug;
-
-	private static Logger logger = LogManager.getLogger(MediaFilesWriter.class);
+	
 	private final String FOLDER_SEPARATOR = System.getProperty("file.separator");
 
 	public void writeSongToFolder(Song song, String folder) {

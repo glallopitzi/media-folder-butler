@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -23,7 +22,7 @@ import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class SongBuilderJAudioTagger implements SongBuilder {
 
-	private static Logger logger = LogManager.getLogger(SongBuilderJAudioTagger.class);
+	private static final Logger logger = Logger.getLogger(SongBuilderJAudioTagger.class);
 	
 	public Song fromFile(File sourceFile) {
 		String fileExt = StringUtils.substringAfterLast(sourceFile.getName(), ".");

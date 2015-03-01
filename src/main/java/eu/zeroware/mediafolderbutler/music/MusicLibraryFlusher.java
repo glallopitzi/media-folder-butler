@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,7 +16,8 @@ import eu.zeroware.mediafolderbutler.utils.MediaFilesWriter;
 
 public class MusicLibraryFlusher extends MusicLibraryWorker implements Flusher {
 
-	private static Logger logger = LogManager.getLogger(MusicLibraryFlusher.class);
+	private static final Logger logger = Logger.getLogger(MusicLibraryFlusher.class);
+	
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
 	private List<File> skippedFiles;
 
