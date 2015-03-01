@@ -1,15 +1,18 @@
 package eu.zeroware.mediafolderbutler;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
+import org.springframework.beans.factory.annotation.Value;
 
 public abstract class LibraryWorker {
 	
-	@Inject @Named("builder.book") protected boolean builderBook;
-	@Inject @Named("builder.movie") protected boolean builderMovie;
-	@Inject @Named("builder.music") protected boolean builderMusic;
+	@Value("builder.book:false") 
+	protected boolean builderBook;
+	@Value("builder.movie:false") 
+	protected boolean builderMovie;
+	@Value("builder.music:false") 
+	protected boolean builderMusic;
 	
-	@Inject @Named("debug") protected Boolean debug;
+	@Value("debug:true") 
+	protected Boolean debug;
 	
 	protected final String FOLDER_SEPARATOR = System.getProperty("file.separator");
 		

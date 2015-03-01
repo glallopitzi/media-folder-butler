@@ -14,11 +14,8 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.name.Named;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
@@ -35,10 +32,10 @@ public class LastfmFinder extends JerseyRESTClient {
 	
 	private static Logger logger = LogManager.getLogger(LastfmFinder.class);
 	
-	@Inject @Named("lastfm.baseServiceUrl") private String BASE_SERVICE_URL;
-	@Inject @Named("lastfm.apiToken") private String API_TOKEN;
-	@Inject @Named("lastfm.apiSecret") private String API_SECRET;
-	@Inject @Named("lastfm.apiUser") private String API_USER;
+	@Value("lastfm.baseServiceUrl") private String BASE_SERVICE_URL;
+	@Value("lastfm.apiToken") private String API_TOKEN;
+	@Value("lastfm.apiSecret") private String API_SECRET;
+	@Value("lastfm.apiUser") private String API_USER;
 	
 	private String token;
 	
@@ -208,21 +205,4 @@ public class LastfmFinder extends JerseyRESTClient {
 		this.token = token;
 	}
 	
-	
-	
-	
-	public static void main(String[] args){
-		Injector injector = Guice.createInjector();
-		LastfmFinder lf = injector.getInstance(LastfmFinder.class);
-		
-		List<Song> searchForSongByName = lf.searchForSongByName("Ilaria condizionata");
-		for (Song song : searchForSongByName) {
-			logger.info(song.toString());
-		}
-		
-		searchForSongByName = lf.searchForSongByName("Dust it off");
-		for (Song song : searchForSongByName) {
-			System.out.println(song.toString());
-		}
-	}
 }

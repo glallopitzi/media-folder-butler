@@ -6,17 +6,14 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
+import org.springframework.beans.factory.annotation.Value;
 
 import eu.zeroware.mediafolderbutler.entity.Creation;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
 
 public class MediaFilesWriter {
 
-	@Inject
-	@Named("debug")
+	@Value("debug:true")
 	protected Boolean debug;
 
 	private static Logger logger = LogManager.getLogger(MediaFilesWriter.class);

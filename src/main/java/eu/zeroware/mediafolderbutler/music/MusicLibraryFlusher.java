@@ -7,8 +7,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.Flusher;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
@@ -22,7 +21,7 @@ public class MusicLibraryFlusher extends MusicLibraryWorker implements Flusher {
 	private final String NEW_ROOT_FOLDER = FOLDER_SEPARATOR + "newroot";
 	private List<File> skippedFiles;
 
-	@Inject
+	@Autowired
 	private MediaFilesWriter mediaFilesWriter;
 
 	public void flush() {

@@ -13,15 +13,11 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.name.Named;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-import eu.zeroware.mediafolderbutler.MediaFolderButlerModule;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
@@ -46,7 +42,8 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 	
 	private static Logger logger = LogManager.getLogger(MusicBrainzFinder.class);
 	
-	@Inject @Named("musicbrainz.baseServiceUrl") private String BASE_SERVICE_URL;
+	@Value("musicbrainz.baseServiceUrl") 
+	private String BASE_SERVICE_URL;
 	
 	private final String SONG_RESOURCE 		= "recording";
 	private final String SONGS_RESOURCE 	= SONG_RESOURCE + "s";
@@ -379,62 +376,6 @@ public class MusicBrainzFinder extends JerseyRESTClient {
 			}
 		}
 		return "";
-	}
-
-	
-
-	/**
-	 * TO REMOVE-------------------
-	 * This is only for dev purpose
-	 * 
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Injector injector = Guice.createInjector(new MediaFolderButlerModule());
-		MusicBrainzFinder finder = injector.getInstance(MusicBrainzFinder.class);
-		
-		
-		logger.info("-------- Start");
-		
-		
-//		finder.browseArtist("b7ffd2af-418f-4be2-bdd1-22f8b48613da");
-//		
-//		finder.browseAlbum("0d9e2d13-3a3b-4823-b7bf-1f992697c527");
-//		
-//		finder.browseSong("787cf6d0-a44b-4562-aa5c-5c4b244576c6");
-//		
-//		finder.searchForAlbumByName("the fragile");
-		
-//		Album searchForAlbumByNameAndArtist = finder.searchForAlbumByNameAndArtist("broken", "nine inch nails");
-//		if(searchForAlbumByNameAndArtist != null)
-//			logger.info(searchForAlbumByNameAndArtist.toString());
-//		
-//		Artist searchForArtistByName = finder.searchForArtistByName("caparezza");
-//		if(searchForArtistByName != null)
-//			logger.info(searchForArtistByName.toString());
-		
-//		List<Song> searchForSongByNameAndArtistAndAlbum = finder.searchForSongByNameAndArtistAndAlbum("the wretched", "nine inch nails", "the fragile");
-//		if(searchForSongByNameAndArtistAndAlbum != null){
-//			
-//		}
-		
-//		Artist lookupArtistWithAlbums = finder.lookupArtistWithAlbums("b7ffd2af-418f-4be2-bdd1-22f8b48613da");
-//		Artist searchForArtistByName = finder.searchForArtistByName("Pearl Jam");
-//		logger.info(searchForArtistByName.toString());
-		
-		
-//		System.out.println("before first request: " + new Date().toGMTString());
-//		finder.checkForRequestBound();
-//		System.out.println("after first request: " + new Date().toGMTString());
-//		finder.checkForRequestBound();
-//		System.out.println("after second request: " + new Date().toGMTString());
-//		finder.checkForRequestBound();
-//		System.out.println("after third request: " + new Date().toGMTString());
-//		finder.checkForRequestBound();
-//		System.out.println("after forth request: " + new Date().toGMTString());
-		
-		logger.info("-------- Stop");
 	}
 	
 }

@@ -1,6 +1,6 @@
 package eu.zeroware.mediafolderbutler.utils.rest;
 
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
@@ -11,7 +11,8 @@ public class LastfmClient extends JerseyRESTClient implements
 		ExternalServicesClient {
 
 	
-	@Inject private LastfmFinder lastfmFinder;
+	@Autowired
+	private LastfmFinder lastfmFinder;
 
 	
 	public void enhanceSongInfo(Song song) {

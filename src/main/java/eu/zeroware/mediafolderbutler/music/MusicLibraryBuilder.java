@@ -7,8 +7,7 @@ import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.music.entity.Library;
 import eu.zeroware.mediafolderbutler.music.entity.Song;
@@ -19,8 +18,10 @@ public class MusicLibraryBuilder extends MusicLibraryWorker{
 	
 	private static Logger logger = LogManager.getLogger(MusicLibraryBuilder.class);
 	
-	@Inject private SongBuilder songBuilder;
-	@Inject private MediaFilesReader mediaFilesReader;
+	@Autowired
+	private SongBuilder songBuilder;
+	@Autowired
+	private MediaFilesReader mediaFilesReader;
 	
 	private List<Song> foundTracks;
 	private List<File> skippedFiles;

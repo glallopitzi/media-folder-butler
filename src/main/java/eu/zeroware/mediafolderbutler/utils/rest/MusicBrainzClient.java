@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.music.entity.Album;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
@@ -18,7 +15,8 @@ public class MusicBrainzClient implements ExternalServicesClient {
 	
 	private static Logger logger = LogManager.getLogger(MusicBrainzFinder.class);
 	
-	@Inject private MusicBrainzFinder brainzFinder;
+	@Autowired
+	private MusicBrainzFinder brainzFinder;
 	
 	public void enhanceSongInfo(Song song) {
 		List<Song> searchForSongByNameAndArtist = brainzFinder.searchForSongByNameAndArtist(song.getName(), song.getArtist());
@@ -48,33 +46,4 @@ public class MusicBrainzClient implements ExternalServicesClient {
 		return brainzFinder;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * TO REMOVE-------------------
-	 * This is only for dev purpose
-	 * 
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Injector injector = Guice.createInjector();
-		MusicBrainzClient client = injector.getInstance(MusicBrainzClient.class);
-		logger.info("-----------Start");
-		
-		
-		Song song = new Song();
-		song.setArtist("Caparezza");
-		song.setName("Ilaria condizionata");
-
-		client.enhanceSongInfo(song);
-		
-		logger.info("-----------Stop");
-	}
 }

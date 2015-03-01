@@ -2,19 +2,19 @@ package eu.zeroware.mediafolderbutler;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class MediaFolderButlerApp {
 
 	private static Logger logger = LogManager.getLogger(MediaFolderButlerApp.class);
 	
-	@Inject private MediaLibraryBuilder libraryBuilder;
-	@Inject private MediaLibraryEnhancer libraryEnhancer;
-	@Inject private MediaLibraryFlusher libraryFlusher;
+	@Autowired
+	private MediaLibraryBuilder libraryBuilder;
+	@Autowired
+	private MediaLibraryEnhancer libraryEnhancer;
+	@Autowired
+	private MediaLibraryFlusher libraryFlusher;
 	
 	////////////////////////////////////////////////////////////	
 	// BUILD STEP
@@ -44,22 +44,4 @@ public class MediaFolderButlerApp {
 		logger.info("flushLibrary - END");
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	////////////////////////////////////////////////////////////
-	// MAIN METHOD
-	public static void main(String[] args) {
-		Injector injector = Guice.createInjector(new MediaFolderButlerModule());
-		MediaFolderButlerApp app = injector.getInstance(MediaFolderButlerApp.class);
-		app.buildLibrary();
-		app.enhanceLibrary();
-		app.flushLibrary();
-	}
 }

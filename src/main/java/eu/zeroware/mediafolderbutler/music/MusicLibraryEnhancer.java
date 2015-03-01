@@ -5,8 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.Enhancer;
 import eu.zeroware.mediafolderbutler.utils.rest.LastfmClient;
@@ -17,8 +16,10 @@ public class MusicLibraryEnhancer extends MusicLibraryWorker implements Enhancer
 	
 	private static Logger logger = LogManager.getLogger(MusicLibraryEnhancer.class);
 	
-	@Inject private MusicBrainzClient musicBrainzClient;
-	@Inject private LastfmClient lastfmClient;
+	@Autowired
+	private MusicBrainzClient musicBrainzClient;
+	@Autowired
+	private LastfmClient lastfmClient;
 	
 	private List<File> skippedFiles;
 	

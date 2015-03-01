@@ -2,8 +2,7 @@ package eu.zeroware.mediafolderbutler;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.book.BookLibraryBuilder;
 import eu.zeroware.mediafolderbutler.movie.MovieLibraryBuilder;
@@ -13,9 +12,12 @@ public class MediaLibraryBuilder extends LibraryWorker implements Builder {
 	
 	private static Logger logger = LogManager.getLogger(MediaLibraryBuilder.class);
 	
-	@Inject private MusicLibraryBuilder musicLibraryBuilder;
-	@Inject private MovieLibraryBuilder movieLibraryBuilder;
-	@Inject private BookLibraryBuilder bookLibraryBuilder;
+	@Autowired
+	private MusicLibraryBuilder musicLibraryBuilder;
+	@Autowired	
+	private MovieLibraryBuilder movieLibraryBuilder;
+	@Autowired
+	private BookLibraryBuilder bookLibraryBuilder;
 	
 	public void build(){
 		logger.info("in buildLibrary");

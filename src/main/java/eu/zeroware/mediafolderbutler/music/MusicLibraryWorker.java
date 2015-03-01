@@ -1,9 +1,7 @@
 package eu.zeroware.mediafolderbutler.music;
 
 import org.apache.commons.lang3.StringUtils;
-
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
+import org.springframework.beans.factory.annotation.Value;
 
 import eu.zeroware.mediafolderbutler.LibraryWorker;
 import eu.zeroware.mediafolderbutler.music.entity.Library;
@@ -11,10 +9,14 @@ import eu.zeroware.mediafolderbutler.music.entity.Library;
 public abstract class MusicLibraryWorker extends LibraryWorker{
 		
 	// config hardcoded
-	@Inject @Named("music.audio.files.extentions") protected String AUDIO_EXT_STRING;
-	@Inject @Named("music.audio.compilation.extensions") protected String COMPILATION_EXT_STRING;
-	@Inject @Named("music.audio.other.extensions") protected String OTHER_EXT_STRING;
-	@Inject @Named("musicRootFolder") protected String BASE_MUSIC_FOLDER;
+	@Value("music.audio.files.extentions") 
+	protected String AUDIO_EXT_STRING;
+	@Value("music.audio.compilation.extensions") 
+	protected String COMPILATION_EXT_STRING;
+	@Value("music.audio.other.extensions") 
+	protected String OTHER_EXT_STRING;
+	@Value("musicRootFolder") 
+	protected String BASE_MUSIC_FOLDER;
 	
 	protected Library library;	
 	
