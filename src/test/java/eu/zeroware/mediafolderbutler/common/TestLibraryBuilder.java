@@ -1,23 +1,16 @@
 package eu.zeroware.mediafolderbutler.common;
 
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.google.inject.Inject;
-
-import eu.zeroware.mediafolderbutler.MediaLibraryBuilder;
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
+import eu.zeroware.mediafolderbutler.MediaLibraryBuilder;
 
 public class TestLibraryBuilder extends MediaFolderButlerTestBase {
 	
-	@Inject private MediaLibraryBuilder libraryBuilder;
-	
-	@Before
-	public void init() {
-		if (libraryBuilder == null)
-			libraryBuilder = injector.getInstance(MediaLibraryBuilder.class);
-	}
+	@Autowired
+	private MediaLibraryBuilder libraryBuilder;
 	
 	@Test
 	@Ignore

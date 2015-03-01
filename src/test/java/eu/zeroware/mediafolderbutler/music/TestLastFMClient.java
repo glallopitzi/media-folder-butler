@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 import eu.zeroware.mediafolderbutler.music.entity.Artist;
@@ -20,14 +20,8 @@ public class TestLastFMClient extends MediaFolderButlerTestBase {
 	private static final String TEST_SONG_NAME = "come as you are";
 	private static final String TEST_ARTIST_NAME = "Madonna";
 	
+	@Autowired
 	private LastfmClient client;
-	
-	@Before
-	public void init() {
-		if (client == null)
-			client = injector.getInstance(LastfmClient.class);
-	}
-	
 	
 	@Test
 	public void testSearchForArtistByName(){

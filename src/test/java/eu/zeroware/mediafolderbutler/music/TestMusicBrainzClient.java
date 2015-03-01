@@ -3,11 +3,9 @@ package eu.zeroware.mediafolderbutler.music;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.List;
-
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eu.zeroware.mediafolderbutler.MediaFolderButlerTestBase;
 import eu.zeroware.mediafolderbutler.music.entity.Album;
@@ -18,17 +16,11 @@ import eu.zeroware.mediafolderbutler.utils.rest.musicbrainz.MusicBrainzFinder;
 
 public class TestMusicBrainzClient extends MediaFolderButlerTestBase{
 	
+	@Autowired
 	private MusicBrainzClient client;
 	
 	private String artistNameToTest = "Caparezza";
 	private String albumTitleToTest = "an awesome wave";
-	
-	@Before
-	public void init() {
-		if (client == null)
-			client = injector.getInstance(MusicBrainzClient.class);
-	}
-	
 	
 	@Test
 	@Ignore

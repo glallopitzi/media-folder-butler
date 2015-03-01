@@ -2,19 +2,27 @@ package eu.zeroware.mediafolderbutler.music;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+public class MusicFolderButlerApplication {
 
-
-public class MusicFolderButlerApp {
-
-	private static Logger logger = LogManager.getLogger(MusicFolderButlerApp.class);
+private static Logger logger = LogManager.getLogger(MusicFolderButlerApplication.class);
 	
-	@Inject private MusicLibraryBuilder libraryBuilder;
-	@Inject private MusicLibraryEnhancer libraryEnhancer;
-	@Inject private MusicLibraryFlusher libraryFlusher;
+	@Autowired
+	private MusicLibraryBuilder libraryBuilder;
+	
+	@Autowired
+	private MusicLibraryEnhancer libraryEnhancer;
+	
+	@Autowired
+	private MusicLibraryFlusher libraryFlusher;
 	
 	////////////////////////////////////////////////////////////	
 	// BUILD STEP
@@ -47,21 +55,7 @@ public class MusicFolderButlerApp {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	////////////////////////////////////////////////////////////
-	// MAIN METHOD
 	public static void main(String[] args) {
-		Injector injector = Guice.createInjector(new MusicFolderButlerModule());
-		MusicFolderButlerApp organizer = injector.getInstance(MusicFolderButlerApp.class);
-		organizer.buildLibrary();
-		organizer.enhanceLibrary();
-		organizer.flushLibrary();
-	}
+        SpringApplication.run(MusicFolderButlerApplication.class, args);
+    }
 }
